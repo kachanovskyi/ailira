@@ -1,0 +1,14 @@
+{
+  "chatId": {
+    "id": "2db18920-b7c7-425c-8483-64b7780b2c33"
+  },
+  "buttons": null,
+  "messages": [
+    {
+      "text": "Hi!"
+    },
+    {
+      "text": "How are you?"
+    }
+  ]
+}
