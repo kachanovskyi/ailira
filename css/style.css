@@ -2,7 +2,7 @@ body {
     margin: 0;
     font-family: 'Rubik', sans-serif;
     width: 100%;
-    overflow-x: hidden !important;
+    overflow-x: hidden;
     text-align: center;
 }
 
