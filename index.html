@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/chat.css"/>
 <body>
 <header>
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -53,8 +54,13 @@
             <!--</div>-->
         </div>
     </div>
-    <div class="col-xs-6"></div>
-    <div class="col-xs-6">
+    <div class="col-xs-5 chat-container">
+        <div id="chat-window">
+
+        </div>
+    </div>
+
+    <div class="col-xs-7">
         <div class="slide-2">
             <div class="top" id="skills">
                 <p>
@@ -64,12 +70,14 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="col-xs-4 aim-block">
-                        <h4>Individuals</h4>
-                        <p>
-                            Fusce vel lorem at nulla mattis interdum id a elit. Fusce libero nunc, lacinia nec orci vitae,
-                            rutrum malesuada arcu.
-                        </p>
-                        <a href="#">Learn more ></a>
+                        <div class="inner">
+                            <h4>Individuals</h4>
+                            <p>
+                                Fusce vel lorem at nulla mattis interdum id a elit. Fusce libero nunc, lacinia nec orci vitae,
+                                rutrum malesuada arcu.
+                            </p>
+                            <a href="#">Learn more ></a>
+                        </div>
                     </div>
                     <div class="col-xs-4 aim-block">
                         <div class="inner">
@@ -82,12 +90,14 @@
                         </div>
                     </div>
                     <div class="col-xs-4 aim-block">
-                        <h4>Individuals</h4>
-                        <p>
-                            Fusce vel lorem at nulla mattis interdum id a elit. Fusce libero nunc, lacinia nec orci vitae,
-                            rutrum malesuada arcu.
-                        </p>
-                        <a href="#">Get a subscription ></a>
+                        <div class="inner">
+                            <h4>Individuals</h4>
+                            <p>
+                                Fusce vel lorem at nulla mattis interdum id a elit. Fusce libero nunc, lacinia nec orci vitae,
+                                rutrum malesuada arcu.
+                            </p>
+                            <a href="#">Get a subscription ></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -141,7 +151,7 @@
 
         <div class="slide-4">
             <div class="row table-display">
-                <div class="table-cell col-xs-12 col-sm-6 col-md-offset-1 col-md-4">
+                <div class="table-cell col-xs-12 col-sm-6 col-md-offset-1 col-md-5 col-lg-6">
                     <h1>Ailira Messenger Chatbot</h1>
                     <p>
                         For your convenience, Ailira is always on and accessible from desktop and mobile devices alike. To make it even more available to you, Ailira can also be reached via Facebook Messenger. You can chat with Ailira as you would with a friend, using instant messaging.
@@ -149,7 +159,7 @@
                     <a href="https://www.messenger.com/t/ailira" target="_blank" class="learn-more-btn blue page-scroll">Try Ailira now</a>
                 </div>
 
-                <div class="table-cell col-xs-12 col-sm-6 col-md-offset-1 col-md-6">
+                <div class="table-cell col-xs-12 col-sm-5 col-md-offset-1 col-md-5 col-lg-4">
                     <img src="images/iphone.png"/>
                 </div>
             </div>
@@ -187,9 +197,10 @@
 </footer>
 
 <link href="https://fonts.googleapis.com/css?family=Rubik:400,500" rel="stylesheet">
-<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/jquery-2.1.4.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/index.js"></script>
-<script src="https://rawgit.com/kachanovskyi/toyotacr-widget/master/js/widget.js"></script>
+<script src="js/chat.js"></script>
+<!--<script src="https://rawgit.com/kachanovskyi/toyotacr-widget/master/js/widget.js"></script>-->
 </body>
 </html>

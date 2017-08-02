@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    padding-top: 80px;
+    padding-top: 82px;
     font-family: 'Rubik', sans-serif;
     width: 100%;
     overflow-x: hidden;
@@ -213,24 +213,32 @@ a:hover {
 
 .slide-2 .aim-block {
     text-align: left;
-    padding: 20px;
+    padding: 0px;
     display: inline-block;
     transition: .2s ease-in-out;
 }
 
 .slide-2 .aim-block:first-child {
-    background: linear-gradient( rgba(17, 36, 62, .5), rgba(29, 65, 113, .5)), url("../images/image1.png") center;
+    padding-right: 4px;
 }
 .slide-2 .aim-block:nth-child(2) {
-    padding: 0 6px;
+    padding: 0 2px;
 }
 .slide-2 .aim-block:last-child {
+    padding-left: 4px;
+}
+
+.slide-2 .aim-block:first-child .inner {
+    background: linear-gradient( rgba(17, 36, 62, .5), rgba(29, 65, 113, .5)), url("../images/image1.png") center;
+}
+.slide-2 .aim-block:last-child .inner {
     background: linear-gradient( rgba(17, 36, 62, .5), rgba(29, 65, 113, .5)), url("../images/image3.png") center;
 }
 
-.slide-2 .aim-block:nth-child(2) .inner {
+.slide-2 .aim-block .inner {
     background: linear-gradient( rgba(17, 36, 62, .5), rgba(29, 65, 113, .5)), url("../images/image2.png") center;
     padding: 20px;
+    background-size: cover;
 }
 
 .slide-2 .aim-block h4 {
@@ -243,6 +251,7 @@ a:hover {
 .slide-2 .aim-block p {
     color: #FFFFFF;
     margin: 0 0 20px;
+    word-wrap: break-word;
 }
 
 .slide-2 .aim-block a {
