@@ -36,6 +36,13 @@ a:hover {
     margin: 0 !important;
 }
 
+.flexbox {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+}
+
 .learn-more-btn {
     display: inline-block;
     padding: 15px 30px;
@@ -60,6 +67,8 @@ a:hover {
     border: none;
     background-color: #FFFFFF;
     margin-bottom: 0;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+
 }
 
 .navbar.navbar-default .container-fluid {
@@ -77,20 +86,29 @@ a:hover {
     text-align: center;
 }
 
+.navbar-nav>li:hover {
+    background: rgba(0, 0, 0, .02);
+}
+
 .navbar-default .navbar-btn {
     background: transparent;
     color: #3A87F0;
     font-size: 18px;
     font-weight: 500;
 }
+.navbar-default .navbar-btn:hover {
+    text-decoration: underline;
+}
 
 .navbar-default .navbar-brand {
     margin-left: 0;
     padding: 0;
     line-height: 100%;
-    color: #2F80ED !important;
     text-transform: lowercase;
     height: auto;
+}
+.navbar-default .navbar-brand p {
+    color: #2F80ED !important;
 }
 .navbar-default .navbar-header {
     display: flex;
@@ -120,6 +138,17 @@ a:hover {
 
 .navbar-default .navbar-toggle .icon-bar {
     background-color: #FFFFFF;
+}
+
+.navbar-default .nav li .dropdown-menu {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    padding: 0;
+}
+
+.navbar-default .nav li .dropdown-menu li a {
+    padding: 20px;
 }
 
 .slide-1 {
@@ -213,9 +242,10 @@ a:hover {
 
 .slide-2 .aim-block {
     text-align: left;
-    padding: 0px;
-    display: inline-block;
+    padding: 0;
     transition: .2s ease-in-out;
+    display: flex;
+    flex: 1;
 }
 
 .slide-2 .aim-block:first-child {
@@ -238,7 +268,10 @@ a:hover {
 .slide-2 .aim-block .inner {
     background: linear-gradient( rgba(17, 36, 62, .5), rgba(29, 65, 113, .5)), url("../images/image2.png") center;
     padding: 20px;
-    background-size: cover;
+    background-size: cover !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .slide-2 .aim-block h4 {

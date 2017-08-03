@@ -6,13 +6,13 @@ $(document).ready(function () {
         var root = './';
         // var root = 'https://rawgit.com/kachanovskyi/toyotacr-widget/master/';
 
-        var head = document.getElementsByTagName('head')[0];
-
-        var stylesheet = document.createElement('link');
-        stylesheet.type = 'text/css';
-        stylesheet.rel = 'stylesheet';
-        stylesheet.href = root + 'css/chat.css';
-        head.appendChild(stylesheet);
+        // var head = document.getElementsByTagName('head')[0];
+        //
+        // var stylesheet = document.createElement('link');
+        // stylesheet.type = 'text/css';
+        // stylesheet.rel = 'stylesheet';
+        // stylesheet.href = root + 'css/chat.css';
+        // head.appendChild(stylesheet);
 
         // var icons = document.createElement('link');
         // icons.type = 'text/css';
@@ -471,18 +471,21 @@ $(document).ready(function () {
             }
 
             function getVisible($el, param) {
-                var scrollTop = $(this).scrollTop() + navHeight;
+                if($el.length) {
+                    var scrollTop = $(this).scrollTop() + navHeight;
 
-                if (param) {
-                    scrollTop = $(this).scrollTop();
+                    if (param) {
+                        scrollTop = $(this).scrollTop();
+                    }
+
+                    var scrollBot = scrollTop + $(this).height(),
+                        elTop = $el.offset().top,
+                        elBottom = elTop + $el.outerHeight(),
+                        visibleTop = elTop < scrollTop ? scrollTop : elTop,
+                        visibleBottom = elBottom > scrollBot ? scrollBot : elBottom;
+                    return visibleBottom - visibleTop;
                 }
-
-                var scrollBot = scrollTop + $(this).height(),
-                    elTop = $el.offset().top,
-                    elBottom = elTop + $el.outerHeight(),
-                    visibleTop = elTop < scrollTop ? scrollTop : elTop,
-                    visibleBottom = elBottom > scrollBot ? scrollBot : elBottom;
-                return visibleBottom - visibleTop;
+                return;
             }
 
             function setChatSize() {
