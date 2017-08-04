@@ -1,0 +1,75 @@
+{
+  "recipient": {
+    "id": "23"
+  },
+  "message": {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "elements": [
+          {
+            "title": "Single",
+            "subtitle": null,
+            "buttons": [
+              {
+                "type": "postback",
+                "title": "Single",
+                "payload": "SINGLE"
+              }
+            ],
+            "image_url": "https://010e8e35.ngrok.io/images/single.jpg"
+          },
+          {
+            "title": "Committed",
+            "subtitle": null,
+            "buttons": [
+              {
+                "type": "postback",
+                "title": "Committed",
+                "payload": "COMMITTED"
+              }
+            ],
+            "image_url": "https://010e8e35.ngrok.io/images/committed.jpg"
+          },
+          {
+            "title": "Complicated",
+            "subtitle": null,
+            "buttons": [
+              {
+                "type": "postback",
+                "title": "Complicated",
+                "payload": "COMPLICATED"
+              }
+            ],
+            "image_url": "https://010e8e35.ngrok.io/images/complicated.jpg"
+          },
+          {
+            "title": "Established",
+            "subtitle": null,
+            "buttons": [
+              {
+                "type": "postback",
+                "title": "Established",
+                "payload": "ESTABLISHED"
+              }
+            ],
+            "image_url": "https://010e8e35.ngrok.io/images/established.jpg"
+          },
+          {
+            "title": "I don't know",
+            "subtitle": null,
+            "buttons": [
+              {
+                "type": "postback",
+                "title": "I don't know",
+                "payload": "OTHER"
+              }
+            ],
+            "image_url": "https://010e8e35.ngrok.io/images/other.jpg"
+          }
+        ],
+        "template_type": "generic"
+      }
+    }
+  }
+}

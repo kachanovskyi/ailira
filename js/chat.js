@@ -182,8 +182,8 @@ $(document).ready(function () {
                             $('<a class="send-message">').text('Send')
                                 .css('float', 'right')
                                 .css('border-bottom', 'none')
-                                // .click(send)
-                                .click(sendName)
+                                .click(send)
+                            // .click(sendName)
                         )
                 )
                 .appendTo($('#chat-window'));
@@ -257,54 +257,177 @@ $(document).ready(function () {
 
             function setResponse(val) {
 
-                console.log('setresponse', val.message.attachment.payload);
-
                 var sendBtn = $('.send-message');
                 var container = $('<div class="message-outer bot">');
                 var message = $('<div class="chat-message bot">');
+                var btnWidth,
+                    scrCont,
+                    scrContWidth = 0;
 
-                sendBtn.addClass('disabled');
+                // sendBtn.addClass('disabled');
 
                 var wave = $('<div id="wave">')
                     .append($('<span class="dot">'))
                     .append($('<span class="dot">'))
                     .append($('<span class="dot">'));
 
-                if (val.message.text !== undefined) {
+                if(val.message !== null) {
+                    if (val.message.text !== undefined) {
+                        message.text(val.message.text);
+                    } else if (val.message.attachment !== undefined) {
+                        message.text(val.message.attachment.payload.text);
+                    }
 
-                    // var botImage = root + 'img/toyota-logo.png';
-                    var message = $('<div class="chat-message bot">').text(val.message.text);
+                    container.append(
+                        $('<div class="message-row">')
+                            .append(wave)
+                    );
 
-                } else if (val.message.attachment !== undefined) {
-                    // console.log(val.message.attachment)
+
+                    setTimeout(function () {
+                        $('<div class="message-row">')
+                            .append(
+                                message
+                            )
+                            .appendTo(container);
+
+                        if (val.message.quick_replies) {
+                            scrCont = $('<div>')
+                                .addClass('scrolling-container')
+                                .append(
+                                    $('<span class="arrow">')
+                                        .text('<')
+                                        .click(
+                                            function () {
+                                                var navwidth = scrCont.find('ul');
+                                                navwidth.scrollLeft(navwidth.scrollLeft() - 200);
+                                            }
+                                        )
+                                )
+                                .append(
+                                    $('<span class="arrow">')
+                                        .text('>')
+                                        .click(
+                                            function () {
+                                                var navwidth = scrCont.find('ul');
+                                                navwidth.scrollLeft(navwidth.scrollLeft() + 200);
+                                            }
+                                        )
+                                )
+                                .append(
+                                    $('<ul>')
+                                )
+                                .appendTo(container);
+
+                            val.message.quick_replies.forEach(function (item) {
+                                $('<li>')
+                                    .text(item.title)
+                                    .appendTo(scrCont.find('ul'));
+                            });
+
+                            scrCont.find('ul').find('li').each(function () {
+                                scrContWidth += parseInt($(this).css('width'), 10) + 10;
+                            });
+
+                            if (scrContWidth > parseInt(scrCont.css('width'), 10)) {
+                                scrCont.addClass('scrollable');
+                            }
+                        }
+
+                        if (val.message.attachment && val.message.attachment.payload.buttons) {
+                            message.css('border-radius', '10px 10px 0 0');
+                            btnWidth = message.outerWidth();
+
+                            val.message.attachment.payload.buttons.forEach(function (entry) {
+
+                                container
+                                    .append(
+                                        $('<div class="chat-message button">')
+                                            .text(entry.title)
+                                            .attr('payload', entry.payload)
+                                            .css('width', btnWidth)
+                                            .click(function () {
+                                                send("btn", $(this));
+                                            })
+                                    );
+
+                            });
+                        }
+
+                        if(val.message.attachment && val.message.attachment.payload.elements) {
+
+                            if (val.message.quick_replies) {
+                                scrCont = $('<div>')
+                                    .addClass('scrolling-container')
+                                    .append(
+                                        $('<span class="arrow">')
+                                            .text('<')
+                                            .click(
+                                                function () {
+                                                    var navwidth = scrCont.find('ul');
+                                                    navwidth.scrollLeft(navwidth.scrollLeft() - 200);
+                                                }
+                                            )
+                                    )
+                                    .append(
+                                        $('<span class="arrow">')
+                                            .text('>')
+                                            .click(
+                                                function () {
+                                                    var navwidth = scrCont.find('ul');
+                                                    navwidth.scrollLeft(navwidth.scrollLeft() + 200);
+                                                }
+                                            )
+                                    )
+                                    .append(
+                                        $('<ul>')
+                                    )
+                                    .appendTo(container);
+
+                                val.message.attachment.payload.elements.forEach(function (item) {
+                                    $('<li>')
+                                        .addClass('generic')
+                                        .append(
+                                            $('<div>')
+                                                .addClass('generic-img')
+                                                .append(
+                                                    $('<div>')
+                                                        .addClass('inner')
+                                                )
+                                        )
+                                        .append(
+                                            $('<div>')
+                                                .addClass('generic-info')
+                                        )
+                                        .append(
+                                            $('<div>')
+                                                .addClass('generic-button')
+                                        )
+                                        .text(item.title)
+                                        .appendTo(scrCont.find('ul'));
+                                });
+
+                                scrCont.find('ul').find('li').each(function () {
+                                    scrContWidth += parseInt($(this).css('width'), 10) + 10;
+                                });
+
+                                if (scrContWidth > parseInt(scrCont.css('width'), 10)) {
+                                    scrCont.addClass('scrollable');
+                                }
+                            }
+
+                        }
+
+                        container.find($('#wave')).remove();
+                        sendBtn.removeClass('disabled');
+                    }, 500);
+
+                    container.prependTo($('#chat-window').find('.message-container'));
+
+                    chatScrollBottom();
                 }
-
-                container.append(
-                    $('<div class="message-row">')
-                        .append(wave)
-                );
-
-                message = $('<div class="chat-message bot">').text(val.message.text);
-                container.find($('#wave')).remove();
-
-
-                setTimeout(function () {
-                    $('<div class="message-row">')
-                        .append(
-                            message
-                        )
-                        .appendTo(container);
-                    container.find($('#wave')).remove();
-                    sendBtn.removeClass('disabled');
-                }, 500);
-
-                container.prependTo($('#chat-window').find('.message-container'));
-                if (val.message.quick_replies) {
-                    console.log(val.message.quick_replies);
-                }
-
-                chatScrollBottom();
             }
+
 
             var stompClient = null;
             var chatId = null;
@@ -316,9 +439,10 @@ $(document).ready(function () {
                     // setConnected(true);
                     console.log('Connected: ' + frame);
                     stompClient.subscribe('/topic/greetings/' + chatId, function (greeting) {
-                        showGreeting(greeting);
+                        console.log(JSON.parse(greeting.body));
+                        showGreeting(JSON.parse(greeting.body));
                     });
-                    sendName();
+                    sendName("hi");
                 });
             }
 
@@ -330,7 +454,7 @@ $(document).ready(function () {
                 console.log("Disconnected");
             }
 
-            function sendName() {
+            function sendName(message) {
                 var data = {
                     object: "page",
                     entry: [
@@ -346,7 +470,7 @@ $(document).ready(function () {
                                         id: "567"
                                     },
                                     message: {
-                                        text: 'Hello, Den'
+                                        text: message
                                     }
                                 }
 
@@ -354,11 +478,13 @@ $(document).ready(function () {
                         }
                     ]
                 };
+
                 stompClient.send("/app/hello", {}, JSON.stringify(data));
             }
 
             function showGreeting(message) {
-                console.log('message: ' + message);
+                // console.log('message: ' + message);
+                setResponse(message);
             }
 
 
@@ -424,25 +550,24 @@ $(document).ready(function () {
                     if (text.length && text.trim()) {
 
                         $("#chatInput").val('');
-                        $.ajax({
-                            // type: "POST",
-                            type: "GET",            //mocked up version, should be post with data: !!!
-                            // url: baseUrl + "query?v=20150910",
-                            url: './data/response2.json',
-                            contentType: "application/json; charset=utf-8",
-                            dataType: "json",
-                            // data: JSON.stringify(data),
-
-                            success: function (data) {
-                                console.log(data);
-                                console.log(data.message.text);
-                                console.log(data.message.attachment);
-                                setResponse(data);
-                            },
-                            error: function () {
-                                console.log("Internal Server Error");
-                            }
-                        });
+                        sendName(text);
+                        console.log(text);
+                        // $.ajax({
+                        //     // type: "POST",
+                        //     type: "GET",            //mocked up version, should be post with data: !!!
+                        //     // url: baseUrl + "query?v=20150910",
+                        //     url: './data/response2.json',
+                        //     contentType: "application/json; charset=utf-8",
+                        //     dataType: "json",
+                        //     // data: JSON.stringify(data),
+                        //
+                        //     success: function (data) {
+                        //         setResponse(data);
+                        //     },
+                        //     error: function () {
+                        //         console.log("Internal Server Error");
+                        //     }
+                        // });
 
                         var message = $('<div class="chat-message user">');
 
@@ -501,6 +626,10 @@ $(document).ready(function () {
                         'width': chatWidth
                     }, 300);
             }
+
+            $(window).unload(function () {
+                disconnect();
+            });
 
             $(window).on('scroll resize', function () {
                 getVisible($('.slide-1'));

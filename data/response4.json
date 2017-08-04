@@ -1,0 +1,55 @@
+{
+  "recipient": {
+    "id": "23"
+  },
+  "message": {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "elements": [
+          {
+            "title": "Family trust",
+            "subtitle": "You have a Family Trust or Self-Managed Superannuation Fund.",
+            "image_url": null
+          },
+          {
+            "title": "Huge inheritance",
+            "subtitle": "You are giving one of your beneficiaries an inheritance of more than $500k and you want them to receive their inheritance in a tax effective way.",
+            "image_url": null
+          },
+          {
+            "title": "Reduced proportion",
+            "subtitle": "You are cutting out (or giving only a reduced proportion to) a child, spouse or dependent.",
+            "image_url": null
+          },
+          {
+            "title": "Dependent with problems",
+            "subtitle": "You have a child, spouse or dependent who is not good with money or who has a drug or alcohol problem.",
+            "image_url": null
+          },
+          {
+            "title": "'Gold-digger' relation",
+            "subtitle": "You have a child, spouse or dependent who might marry someone who is a ‘gold-digger’, who is bad with money or who has a drug or alcohol problem.",
+            "image_url": null
+          },
+          {
+            "title": "Trust with disability",
+            "subtitle": "You want to set up a trust for someone with a disability.",
+            "image_url": null
+          },
+          {
+            "title": "Tax effective way",
+            "subtitle": "You want to make sure that your superannuation is passed on in the most tax effective way.",
+            "image_url": null
+          },
+          {
+            "title": "Part owners",
+            "subtitle": "You, or a company or trust that you own, are the part owner of a business.",
+            "image_url": null
+          }
+        ],
+        "template_type": "generic"
+      }
+    }
+  }
+}
