@@ -182,7 +182,8 @@ $(document).ready(function () {
                             $('<a class="send-message">').text('Send')
                                 .css('float', 'right')
                                 .css('border-bottom', 'none')
-                                .click(send)
+                                // .click(send)
+                                .click(sendName)
                         )
                 )
                 .appendTo($('#chat-window'));
@@ -256,64 +257,59 @@ $(document).ready(function () {
 
             function setResponse(val) {
 
+                console.log('setresponse', val.message.attachment.payload);
+
                 var sendBtn = $('.send-message');
-
-                sendBtn.addClass('disabled');
-
-                if (sessionStorage.getItem("toyotaCRchatID") === null) {
-                    sessionStorage.setItem("toyotaCRchatID", val.chatId.id);
-                }
-
                 var container = $('<div class="message-outer bot">');
                 var message = $('<div class="chat-message bot">');
+
+                sendBtn.addClass('disabled');
 
                 var wave = $('<div id="wave">')
                     .append($('<span class="dot">'))
                     .append($('<span class="dot">'))
                     .append($('<span class="dot">'));
 
-                var counter = 0;
-
-                if (val.message.text !== null) {
+                if (val.message.text !== undefined) {
 
                     // var botImage = root + 'img/toyota-logo.png';
                     var message = $('<div class="chat-message bot">').text(val.message.text);
 
-                    container.append(
-                        $('<div class="message-row">')
-                            .append(wave)
-                    );
+                } else if (val.message.attachment !== undefined) {
+                    // console.log(val.message.attachment)
+                }
 
-                    message = $('<div class="chat-message bot">').text(val.message.text);
+                container.append(
+                    $('<div class="message-row">')
+                        .append(wave)
+                );
+
+                message = $('<div class="chat-message bot">').text(val.message.text);
+                container.find($('#wave')).remove();
+
+
+                setTimeout(function () {
+                    $('<div class="message-row">')
+                        .append(
+                            message
+                        )
+                        .appendTo(container);
                     container.find($('#wave')).remove();
+                    sendBtn.removeClass('disabled');
+                }, 500);
 
-
-                    setTimeout(function () {
-                        $('<div class="message-row">')
-                            .append(
-                                message
-                            )
-                            .appendTo(container);
-                        container.find($('#wave')).remove();
-                        sendBtn.removeClass('disabled');
-                    }, 500);
-
-                    container.prependTo($('#chat-window').find('.message-container'));
-                    if(val.message.quick_replies) {
-                        console.log(val.message.quick_replies);
-                    }
-
-                } else if (val.message.attachment !== null) {
-                    console.log(val.message.attachment)
+                container.prependTo($('#chat-window').find('.message-container'));
+                if (val.message.quick_replies) {
+                    console.log(val.message.quick_replies);
                 }
 
                 chatScrollBottom();
             }
 
             var stompClient = null;
-            // var chatId = null;
+            var chatId = null;
 
-            function connect(chatId) {
+            function connect() {
                 var socket = new SockJS('https://010e8e35.ngrok.io/ailira');
                 stompClient = Stomp.over(socket);
                 stompClient.connect({}, function (frame) {
@@ -335,7 +331,30 @@ $(document).ready(function () {
             }
 
             function sendName() {
-                stompClient.send("/app/hello", {}, JSON.stringify({'object': "my name"}));
+                var data = {
+                    object: "page",
+                    entry: [
+                        {
+                            id: "555",
+                            time: 1458692752478,
+                            messaging: [
+                                {
+                                    sender: {
+                                        id: chatId
+                                    },
+                                    recipient: {
+                                        id: "567"
+                                    },
+                                    message: {
+                                        text: 'Hello, Den'
+                                    }
+                                }
+
+                            ]
+                        }
+                    ]
+                };
+                stompClient.send("/app/hello", {}, JSON.stringify(data));
             }
 
             function showGreeting(message) {
@@ -358,17 +377,18 @@ $(document).ready(function () {
                     // type: "POST",
                     type: "GET",            //mocked up version, should be post with data: !!!
                     url: 'https://010e8e35.ngrok.io/ailira/getStarted',
-                    // url: './data/response.json',
+                    // url: './data/response2.json',
                     // contentType: "application/json; charset=utf-8",
                     // dataType: "json",
                     // data: JSON.stringify(data),
 
-                    success: function (chatId) {
+                    success: function (id) {
                         // chatId = data.chatId.id;
                         // sessionStorage.setItem("toyotaCRchatID", chatId);
-                        console.log(chatId);
-                        // setResponse(chatId);
-                        connect(chatId);
+                        console.log(id);
+                        // setResponse(id);
+                        chatId = id;
+                        connect();
 
                         $('.start-screen').fadeOut("fast");
                     },
