@@ -1,31 +1,8 @@
 {
-  "chatId": {
-    "id": "2db18920-b7c7-425c-8483-64b7780b2c33"
+  "recipient":{
+    "id":"USER_ID"
   },
-  "buttons": [
-    {
-      "title": "some btn",
-      "payload": "GET_STARTED"
-    },
-    {
-      "title": "one more btn",
-      "payload": "GOT_STARTED"
-    },
-    {
-      "title": "just one more",
-      "payload": "GOT_STARTED"
-    }
-  ],
-  "messages": [
-    {
-      "text": "Hi!"
-    }
-  ,
-    {
-      "text": "How are you?"
-    },
-    {
-      "text": "These are test messages.lkwemflkewrmg;erglermgklerg;lemrg;lerkgnmer;kgmner;kgmer;lgm"
-    }
-  ]
+  "message":{
+    "text":"hello, world!"
+  }
 }

@@ -20,8 +20,7 @@ $(document).ready(function () {
         // icons.href = 'https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css';
         // head.appendChild(icons);
 
-        var brandingLink = 'https://www.holaedna.com/edna-ai',
-            navHeight = 82;
+        var navHeight = 82;
 
         // setTimeout(function () {
         //     (window.jQuery && init()) || loadScript("https://code.jquery.com/jquery-1.12.4.min.js", init);           //instead of init func should be isValidTime, so that widget would work only on certain hours
@@ -51,7 +50,7 @@ $(document).ready(function () {
         function init() {
             var $ = window.jQuery;
 
-            var chatId = sessionStorage.getItem("toyotaCRchatID");
+            // var chatId = sessionStorage.getItem("toyotaCRchatID");
             // settings = {},
             // script = $('#anychat-script');
 
@@ -237,39 +236,22 @@ $(document).ready(function () {
                 $('#chat-window').show().addClass('expanded no-border');
                 $("#chatInput").val('');
 
-                if (/webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                    // if ($w.width() < 500) {
-                    $('body')
-                        .animate({
-                            scrollTop: 0
-                        }, 0)
-                        .css('overflow-y', 'scroll')
-                        .css('max-height', chatTop)
-                        .wrapInner('<div id="overflowWrapper" />');
-                    $('#overflowWrapper').css('overflow-y', 'hidden').css('height', chatTop);
-                } else if (/Android/i.test(navigator.userAgent)) {
-                    $('body')
-                        .scrollTop(0)
-                        .css('overflow', 'hidden')
-                        .css('height', '100vh');
-                }
-            }
-
-            function chatWindowClose() {
-                $('#chat-window').hide().removeClass('expanded no-border');
-                $('.chat-close').hide();
-
-                if (/webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                    // if ($w.width() < 500) {
-                    $("#overflowWrapper").contents().unwrap();
-                    $('body')
-                        .css('overflow-y', 'auto')
-                        .css('max-height', 'none');
-                } else if (/Android/i.test(navigator.userAgent)) {
-                    $('body')
-                        .css('overflow-y', 'auto')
-                        .css('height', 'auto');
-                }
+                // if (/webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                //     // if ($w.width() < 500) {
+                //     $('body')
+                //         .animate({
+                //             scrollTop: 0
+                //         }, 0)
+                //         .css('overflow-y', 'scroll')
+                //         .css('max-height', chatTop)
+                //         .wrapInner('<div id="overflowWrapper" />');
+                //     $('#overflowWrapper').css('overflow-y', 'hidden').css('height', chatTop);
+                // } else if (/Android/i.test(navigator.userAgent)) {
+                //     $('body')
+                //         .scrollTop(0)
+                //         .css('overflow', 'hidden')
+                //         .css('height', '100vh');
+                // }
             }
 
             function setResponse(val) {
@@ -292,107 +274,101 @@ $(document).ready(function () {
 
                 var counter = 0;
 
-                if (val.messages !== null) {
+                if (val.message.text !== null) {
 
-                    var botImage = root + 'img/toyota-logo.png';
-                    var message = $('<div class="chat-message bot">').text(val.messages[0].text);
+                    // var botImage = root + 'img/toyota-logo.png';
+                    var message = $('<div class="chat-message bot">').text(val.message.text);
 
                     container.append(
                         $('<div class="message-row">')
                             .append(wave)
                     );
 
-                    var printInterval = setInterval(function () {
-
-                        var btnWidth;
-
-                        if ((counter < val.messages.length) && (val.messages[counter].text !== null)) {
-
-                            message = $('<div class="chat-message bot">').text(val.messages[counter].text);
-
-                            container.find($('#wave')).remove();
-
-                            $('<div class="message-row">')
-                                // .prepend(
-                                //     $('<div class="bot-icon">')
-                                //         .append(
-                                //             $('<img/>').attr('src', botImage)
-                                //         )
-                                // )
-                                .append(
-                                    message
-                                )
-                                .appendTo(container);
-
-                            container
-                                .append(
-                                    $('<div class="message-row">')
-                                        .append(wave)
-                                );
-
-                            counter++;
-                            btnWidth = message.outerWidth();
-                        }
-
-                        if (counter === val.messages.length) {
-
-                            if (val.buttons !== null) {
-                                message.css('border-radius', '4px 4px 0 0');
+                    message = $('<div class="chat-message bot">').text(val.message.text);
+                    container.find($('#wave')).remove();
 
 
-                                val.buttons.forEach(function (entry) {
-
-                                    container
-                                        .append(
-                                            $('<div class="chat-message button">')
-                                                .text(entry.title)
-                                                .attr('payload', entry.payload)
-                                                .css('width', btnWidth)
-                                                .click(function () {
-                                                    send("btn", $(this));
-                                                })
-                                        );
-
-                                });
-                            }
-
-                            container.find($('#wave')).remove();
-                            sendBtn.removeClass('disabled');
-                            clearInterval(printInterval);
-                        }
-
-                    }, 1333);
+                    setTimeout(function () {
+                        $('<div class="message-row">')
+                            .append(
+                                message
+                            )
+                            .appendTo(container);
+                        container.find($('#wave')).remove();
+                        sendBtn.removeClass('disabled');
+                    }, 500);
 
                     container.prependTo($('#chat-window').find('.message-container'));
+                    if(val.message.quick_replies) {
+                        console.log(val.message.quick_replies);
+                    }
 
+                } else if (val.message.attachment !== null) {
+                    console.log(val.message.attachment)
                 }
 
                 chatScrollBottom();
             }
 
+            var stompClient = null;
+            // var chatId = null;
+
+            function connect(chatId) {
+                var socket = new SockJS('https://010e8e35.ngrok.io/ailira');
+                stompClient = Stomp.over(socket);
+                stompClient.connect({}, function (frame) {
+                    // setConnected(true);
+                    console.log('Connected: ' + frame);
+                    stompClient.subscribe('/topic/greetings/' + chatId, function (greeting) {
+                        showGreeting(greeting);
+                    });
+                    sendName();
+                });
+            }
+
+            function disconnect() {
+                if (stompClient != null) {
+                    stompClient.disconnect();
+                }
+                // setConnected(false);
+                console.log("Disconnected");
+            }
+
+            function sendName() {
+                stompClient.send("/app/hello", {}, JSON.stringify({'object': "my name"}));
+            }
+
+            function showGreeting(message) {
+                console.log('message: ' + message);
+            }
+
+
             function chatInit() {
 
-                var data = {
-                    chatId: {
-                        id: chatId
-                    },
-                    button: {
-                        payload: "GET_STARTED"
-                    }
-                };
+                // var data = {
+                //     chatId: {
+                //         id: chatId
+                //     },
+                //     button: {
+                //         payload: "GET_STARTED"
+                //     }
+                // };
 
                 $.ajax({
                     // type: "POST",
                     type: "GET",            //mocked up version, should be post with data: !!!
-                    url: './data/response.json',
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
+                    url: 'https://010e8e35.ngrok.io/ailira/getStarted',
+                    // url: './data/response.json',
+                    // contentType: "application/json; charset=utf-8",
+                    // dataType: "json",
                     // data: JSON.stringify(data),
 
-                    success: function (data) {
-                        chatId = data.chatId.id;
-                        sessionStorage.setItem("toyotaCRchatID", chatId);
-                        setResponse(data);
+                    success: function (chatId) {
+                        // chatId = data.chatId.id;
+                        // sessionStorage.setItem("toyotaCRchatID", chatId);
+                        console.log(chatId);
+                        // setResponse(chatId);
+                        connect(chatId);
 
                         $('.start-screen').fadeOut("fast");
                     },
@@ -438,6 +414,9 @@ $(document).ready(function () {
                             // data: JSON.stringify(data),
 
                             success: function (data) {
+                                console.log(data);
+                                console.log(data.message.text);
+                                console.log(data.message.attachment);
                                 setResponse(data);
                             },
                             error: function () {
@@ -471,7 +450,7 @@ $(document).ready(function () {
             }
 
             function getVisible($el, param) {
-                if($el.length) {
+                if ($el.length) {
                     var scrollTop = $(this).scrollTop() + navHeight;
 
                     if (param) {
@@ -508,7 +487,7 @@ $(document).ready(function () {
                 setChatSize();
             });
 
-            $.fn.isolatedScroll = function() {
+            $.fn.isolatedScroll = function () {
                 this.bind('mousewheel DOMMouseScroll', function (e) {
                     var delta = e.wheelDelta || (e.originalEvent && e.originalEvent.wheelDelta) || -e.detail,
                         bottomOverflow = this.scrollTop + $(this).outerHeight() - this.scrollHeight >= 0,
@@ -532,4 +511,4 @@ $(document).ready(function () {
         init();
     })();
 
-})
+});
