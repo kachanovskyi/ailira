@@ -142,6 +142,7 @@
     margin: 0;
     background-color: rgba(256, 256, 256, .88);
     padding: 0;
+    z-index: 105;
     /*box-shadow: 0 -2px 40px rgba(0, 0, 0, 0.1);*/
 }
 
@@ -357,6 +358,7 @@
     background-color: #2F80ED;
     opacity: .9;
     cursor: pointer;
+    text-decoration: none;
 }
 
 #chat-window .chat-top {
@@ -404,6 +406,7 @@
 
 #chat-window .message-container .message-outer {
     margin-bottom: 4px;
+    text-align: left;
 }
 
 #chat-window .message-container .message-outer.user .chat-message.user:last-child .arrow,
@@ -430,13 +433,13 @@
 }
 
 #chat-window .message-container .scrolling-container {
-    height:40px;
+    /*height:40px;*/
     padding:0;
-    margin-top:60px;
     overflow:hidden;
     position:relative;
     z-index:99;
     display: flex;
+    align-items: center;
     justify-content: center;
 }
 #chat-window .message-container .scrolling-container.scrollable {
@@ -460,7 +463,6 @@
     font-weight:bold;
     cursor:pointer;
     position:absolute;
-    top:0;
     z-index:101;
     justify-content: center;
     align-items: center;
@@ -475,7 +477,7 @@
 }
 #chat-window .message-container .scrolling-container ul {
     width:auto;
-    height:40px;
+    /*height:40px;*/
     overflow:hidden;
     list-style-type:none;
     white-space:nowrap;
@@ -487,7 +489,8 @@
 #chat-window .message-container .scrolling-container ul li {
     padding:0 30px;
     background: #2F80ED;
-    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    /*box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);*/
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 100px;
     font-size: 16px;
     color: #FFFFFF;
@@ -499,17 +502,65 @@
 #chat-window .message-container .scrolling-container ul .generic {
     display: flex;
     align-items: flex-end;
-
+    border-radius: 4px;
+    background: #FFFFFF;
+    padding: 0;
+    flex-direction: column;
 }
 #chat-window .message-container .scrolling-container ul .generic .generic-img {
-    padding: 10px;
+    padding: 10px 10px 0;
+    width: 100%;
 }
 #chat-window .message-container .scrolling-container ul .generic .generic-img .inner {
-    width: 200px;
     height: 100px;
     background: no-repeat center;
     background-size: cover;
 }
+
+#chat-window .message-container .scrolling-container ul .generic .generic-info {
+    padding: 10px 15px;
+    text-align: left;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#chat-window .message-container .scrolling-container ul .generic .generic-info .title {
+    color: #333333;
+    font-weight: 500;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+    display: inline-block;
+    float: left;
+    white-space: normal;
+}
+#chat-window .message-container .scrolling-container ul .generic .generic-info .subtitle {
+    color: rgba(0, 0, 0, .3);
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: 0;
+    display: block;
+    float: left;
+    word-break:break-all;
+    overflow: visible;
+    white-space: normal;
+}
+
+#chat-window .message-container .scrolling-container ul .generic .generic-btn {
+    align-self: center;
+    text-align: center;
+    padding: 6px;
+    width: 100%;
+    display: block;
+}
+
+#chat-window .message-container .scrolling-container ul .generic .generic-btn:hover {
+    text-decoration: none;
+    background: rgba(0, 0, 0, .1);
+    cursor: pointer;
+}
+
+
 
 
 /*#chat-window .message-container .quick-reply-container .inner {*/

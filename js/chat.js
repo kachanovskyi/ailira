@@ -20,7 +20,8 @@ $(document).ready(function () {
         // icons.href = 'https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css';
         // head.appendChild(icons);
 
-        var navHeight = 82;
+        var navHeight = 82,
+            genericScrollValue;
 
         // setTimeout(function () {
         //     (window.jQuery && init()) || loadScript("https://code.jquery.com/jquery-1.12.4.min.js", init);           //instead of init func should be isValidTime, so that widget would work only on certain hours
@@ -257,6 +258,12 @@ $(document).ready(function () {
 
             function setResponse(val) {
 
+                var typing = $('.message-container').find($('#wave'));
+
+                if( typing ) {
+                    typing.parent().parent().remove();
+                }
+
                 var sendBtn = $('.send-message');
                 var container = $('<div class="message-outer bot">');
                 var message = $('<div class="chat-message bot">');
@@ -266,30 +273,35 @@ $(document).ready(function () {
 
                 // sendBtn.addClass('disabled');
 
-                var wave = $('<div id="wave">')
-                    .append($('<span class="dot">'))
-                    .append($('<span class="dot">'))
-                    .append($('<span class="dot">'));
+                if(val.sender_action) {
+                    console.log('TYPING');
+                    var wave = $('<div id="wave">')
+                        .append($('<span class="dot">'))
+                        .append($('<span class="dot">'))
+                        .append($('<span class="dot">'));
+                    container.append(
+                        $('<div class="message-row">')
+                            .append(wave)
+                    );
+                }
 
-                if(val.message !== null) {
+                if (val.message !== null) {
                     if (val.message.text !== undefined) {
                         message.text(val.message.text);
                     } else if (val.message.attachment !== undefined) {
                         message.text(val.message.attachment.payload.text);
                     }
 
-                    container.append(
-                        $('<div class="message-row">')
-                            .append(wave)
-                    );
-
 
                     setTimeout(function () {
-                        $('<div class="message-row">')
-                            .append(
-                                message
-                            )
-                            .appendTo(container);
+
+                        if (message.text().length && message.text().trim()) {
+                            $('<div class="message-row">')
+                                .append(
+                                    message
+                                )
+                                .appendTo(container);
+                        }
 
                         if (val.message.quick_replies) {
                             scrCont = $('<div>')
@@ -340,92 +352,139 @@ $(document).ready(function () {
 
                             val.message.attachment.payload.buttons.forEach(function (entry) {
 
-                                container
-                                    .append(
-                                        $('<div class="chat-message button">')
-                                            .text(entry.title)
-                                            .attr('payload', entry.payload)
-                                            .css('width', btnWidth)
-                                            .click(function () {
-                                                send("btn", $(this));
-                                            })
-                                    );
+                                var btn = $('<a class="chat-message button">').text(entry.title);
+                                    if(btnWidth !== 0) {
+                                        btn.css('width', btnWidth);
+                                    } else {
+                                        btn.css('display', 'inline-block');
+                                    }
+                                if (entry.type === "postback") {
+                                    btn
+                                        .attr('payload', entry.payload)
+                                        .click(function () {
+                                            send("btn", $(this));
+                                        });
+                                } else if (entry.type === "web_url") {
+                                    btn
+                                        .attr('href', entry.url)
+                                        .attr('target', '_blank')
+                                }
+
+                                btn.appendTo(container)
 
                             });
                         }
 
-                        if(val.message.attachment && val.message.attachment.payload.elements) {
+                        if (val.message.attachment && val.message.attachment.payload.elements) {
 
-                            if (val.message.quick_replies) {
-                                scrCont = $('<div>')
-                                    .addClass('scrolling-container')
-                                    .append(
-                                        $('<span class="arrow">')
-                                            .text('<')
-                                            .click(
-                                                function () {
-                                                    var navwidth = scrCont.find('ul');
-                                                    navwidth.scrollLeft(navwidth.scrollLeft() - 200);
-                                                }
+                            scrCont = $('<div>')
+                                .addClass('scrolling-container')
+                                .append(
+                                    $('<span class="arrow">')
+                                        .text('<')
+                                        .click(
+                                            function () {
+                                                var navwidth = scrCont.find('ul');
+                                                navwidth.scrollLeft(navwidth.scrollLeft() - 200);
+                                            }
+                                        )
+                                )
+                                .append(
+                                    $('<span class="arrow">')
+                                        .text('>')
+                                        .click(
+                                            function () {
+                                                var navwidth = scrCont.find('ul');
+                                                navwidth.scrollLeft(navwidth.scrollLeft() + 200);
+                                            }
+                                        )
+                                )
+                                .append(
+                                    $('<ul>')
+                                )
+                                .appendTo(container);
+
+                            val.message.attachment.payload.elements.forEach(function (item) {
+                                var generic = $('<li>').addClass('generic');
+
+                                if (item.image_url) {
+                                    generic.append(
+                                        $('<div>')
+                                            .addClass('generic-img')
+                                            .append(
+                                                $('<div>')
+                                                    .addClass('inner')
+                                                    .css('background-image', 'url("' + item.image_url + '")')
                                             )
                                     )
-                                    .append(
-                                        $('<span class="arrow">')
-                                            .text('>')
-                                            .click(
-                                                function () {
-                                                    var navwidth = scrCont.find('ul');
-                                                    navwidth.scrollLeft(navwidth.scrollLeft() + 200);
-                                                }
-                                            )
-                                    )
-                                    .append(
-                                        $('<ul>')
-                                    )
-                                    .appendTo(container);
-
-                                val.message.attachment.payload.elements.forEach(function (item) {
-                                    $('<li>')
-                                        .addClass('generic')
-                                        .append(
-                                            $('<div>')
-                                                .addClass('generic-img')
-                                                .append(
-                                                    $('<div>')
-                                                        .addClass('inner')
-                                                )
-                                        )
-                                        .append(
-                                            $('<div>')
-                                                .addClass('generic-info')
-                                        )
-                                        .append(
-                                            $('<div>')
-                                                .addClass('generic-button')
-                                        )
-                                        .text(item.title)
-                                        .appendTo(scrCont.find('ul'));
-                                });
-
-                                scrCont.find('ul').find('li').each(function () {
-                                    scrContWidth += parseInt($(this).css('width'), 10) + 10;
-                                });
-
-                                if (scrContWidth > parseInt(scrCont.css('width'), 10)) {
-                                    scrCont.addClass('scrollable');
                                 }
+
+                                if (item.title || item.subtitle) {
+                                    var info = $('<div>')
+                                        .addClass('generic-info')
+                                        .appendTo(generic)
+                                }
+
+                                if (item.title) {
+                                    $('<p>')
+                                        .addClass('title')
+                                        .text(item.title)
+                                        .appendTo(info)
+                                }
+                                if (item.subtitle) {
+                                    $('<p>')
+                                        .addClass('subtitle')
+                                        .text(item.subtitle)
+                                        .appendTo(info)
+                                }
+
+                                if (item.buttons) {
+
+                                    item.buttons.forEach(function (entry) {
+                                        var btn = $('<a>')
+                                            .addClass('generic-btn')
+                                            .text(entry.title);
+
+                                        if (entry.type === "postback") {
+                                            btn
+                                                .attr('payload', entry.payload)
+                                                .click(function () {
+                                                    send("btn", $(this));
+                                                });
+                                        } else if (entry.type === "web_url") {
+                                            btn
+                                                .attr('href', entry.url)
+                                                .attr('target', '_blank')
+                                        }
+
+                                        btn.appendTo(generic);
+
+                                    })
+
+                                }
+
+                                generic.appendTo(scrCont.find('ul'));
+                            });
+
+                            scrCont.find('ul').find('li').each(function () {
+                                scrContWidth += parseInt($(this).css('width'), 10) + 10;
+                            });
+
+                            if (scrContWidth > parseInt(scrCont.css('width'), 10)) {
+                                scrCont.addClass('scrollable');
                             }
+
+                            setGenericWidth();
 
                         }
 
-                        container.find($('#wave')).remove();
                         sendBtn.removeClass('disabled');
-                    }, 500);
-
-                    container.prependTo($('#chat-window').find('.message-container'));
-
-                    chatScrollBottom();
+                    }, 333);
                 }
+
+                container.prependTo($('#chat-window').find('.message-container'));
+                chatScrollBottom();
+
             }
 
 
@@ -442,7 +501,7 @@ $(document).ready(function () {
                         console.log(JSON.parse(greeting.body));
                         showGreeting(JSON.parse(greeting.body));
                     });
-                    sendName("hi");
+                    sendName("wills");
                 });
             }
 
@@ -511,7 +570,6 @@ $(document).ready(function () {
                     success: function (id) {
                         // chatId = data.chatId.id;
                         // sessionStorage.setItem("toyotaCRchatID", chatId);
-                        console.log(id);
                         // setResponse(id);
                         chatId = id;
                         connect();
@@ -538,6 +596,7 @@ $(document).ready(function () {
 
                     if (param === "btn") {
                         text = elem.text();
+                        console.log(text);
                         data.button = {
                             payload: elem.attr('payload')
                         }
@@ -609,7 +668,6 @@ $(document).ready(function () {
                         visibleBottom = elBottom > scrollBot ? scrollBot : elBottom;
                     return visibleBottom - visibleTop;
                 }
-                return;
             }
 
             function setChatSize() {
@@ -627,14 +685,53 @@ $(document).ready(function () {
                     }, 300);
             }
 
-            $(window).unload(function () {
-                disconnect();
-            });
+            function setGenericWidth() {
+                genericScrollValue = parseInt($('.chat-container').css('width'), 10);
+                if ($('.generic-info')) {
+                    var scrContWidth = $('.generic-info').parent().parent().css('width');
+                    var scrCont = $('.generic-info').parent().parent();
+                    scrCont.find('.generic-info').each(function () {
+                        $(this).css('width', scrContWidth);
+                        var genImg = $(this).parent().find('.generic-img');
 
-            $(window).on('scroll resize', function () {
-                getVisible($('.slide-1'));
-                setChatSize();
-            });
+                        if (genImg) {
+                            var genImgWidth = parseInt($(this).parent().find('.generic-img').find('.inner').css('width'), 10);
+                            genImg.find('.inner').css('height', genImgWidth / 2);
+                        }
+                    });
+
+                    scrCont.parent().find('.arrow').first().click(
+                        function () {
+                            var navwidth = scrCont.find('ul');
+                            navwidth.scrollLeft(navwidth.scrollLeft() - parseInt(scrContWidth, 10));
+                        }
+                    );
+                    scrCont.parent().find('.arrow').last().click(
+                        function () {
+                            var navwidth = scrCont.find('ul');
+                            navwidth.scrollLeft(navwidth.scrollLeft() + parseInt(scrContWidth, 10));
+                            console.log(scrContWidth);
+                        }
+                    );
+
+
+                }
+
+
+            }
+
+            // $(window).unload(function () {
+            //     disconnect();
+            // });
+
+            $(window)
+                .on('scroll resize', function () {
+                    getVisible($('.slide-1'));
+                    setChatSize();
+                })
+                .on('resize', function () {
+                    setGenericWidth();
+                });
 
             $.fn.isolatedScroll = function () {
                 this.bind('mousewheel DOMMouseScroll', function (e) {
