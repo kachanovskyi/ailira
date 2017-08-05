@@ -501,7 +501,7 @@ $(document).ready(function () {
                         console.log(JSON.parse(greeting.body));
                         showGreeting(JSON.parse(greeting.body));
                     });
-                    sendName("wills");
+                    sendName("hi");
                 });
             }
 
