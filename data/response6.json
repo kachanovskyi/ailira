@@ -1,0 +1,65 @@
+{
+  "recipient": {
+    "id": "167"
+  },
+  "message": {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "elements": [
+          {
+            "title": "First Beneficiaries",
+            "subtitle": null,
+            "buttons": [
+              {
+                "type": "web_url",
+                "url": "https://010e8e35.ngrok.io/facebook/wills/beneficiaries/parents/167",
+                "title": "Parents",
+                "webview_height_ratio": "full",
+                "messenger_extensions": true
+              }
+            ],
+            "image_url": null
+          },
+          {
+            "title": "Second Beneficiaries",
+            "subtitle": null,
+            "buttons": [
+              {
+                "type": "web_url",
+                "url": "https://010e8e35.ngrok.io/facebook/wills/beneficiaries/siblings/167",
+                "title": "Siblings",
+                "webview_height_ratio": "full",
+                "messenger_extensions": true
+              }
+            ],
+            "image_url": null
+          },
+          {
+            "title": "Third Beneficiaries",
+            "subtitle": null,
+            "buttons": [
+              {
+                "type": "web_url",
+                "url": "https://010e8e35.ngrok.io/facebook/wills/beneficiaries/grandparents/167",
+                "title": "Grandparents",
+                "webview_height_ratio": "full",
+                "messenger_extensions": true
+              }
+            ],
+            "image_url": null
+          }
+        ],
+        "buttons": [
+          {
+            "type": "postback",
+            "title": "Confirm",
+            "payload": "WILLS_EXECUTORS"
+          }
+        ],
+        "template_type": "list",
+        "top_element_style": "compact"
+      }
+    }
+  }
+}

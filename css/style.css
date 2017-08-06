@@ -106,6 +106,7 @@ a:hover {
     line-height: 100%;
     text-transform: lowercase;
     height: auto;
+    cursor: pointer;
 }
 .navbar-default .navbar-brand p {
     color: #2F80ED !important;
@@ -504,7 +505,7 @@ a:hover {
 }
 
 .footer-inner .social-link {
-    max-width: 27%;
+    width: 27%;
     display: inline-block;
     margin-right: 6%;
 }

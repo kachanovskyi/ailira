@@ -442,13 +442,14 @@
     align-items: center;
     justify-content: center;
 }
-#chat-window .message-container .scrolling-container.scrollable {
+#chat-window .message-container .scrolling-container.scrollable:not(.list) {
     padding: 0 40px;
 }
 
-#chat-window .message-container .scrolling-container.scrollable .arrow{
+#chat-window .message-container .scrolling-container.scrollable:not(.list) .arrow{
     display: flex;
 }
+
 
 
 #chat-window .message-container .scrolling-container .arrow {
@@ -486,6 +487,12 @@
     margin: 0;
     display: flex;
 }
+
+#chat-window .message-container .scrolling-container.list ul {
+    display: block;
+    width: 100%;
+}
+
 #chat-window .message-container .scrolling-container ul li {
     padding:0 30px;
     background: #2F80ED;
@@ -499,6 +506,11 @@
     align-items: center;
 }
 
+#chat-window .message-container .scrolling-container.quick ul li {
+    padding: 6px 20px;
+    cursor: pointer;
+}
+
 #chat-window .message-container .scrolling-container ul .generic {
     display: flex;
     align-items: flex-end;
@@ -507,10 +519,20 @@
     padding: 0;
     flex-direction: column;
 }
+
+#chat-window .message-container .scrolling-container.list ul .generic {
+    padding: 12px;
+}
+
 #chat-window .message-container .scrolling-container ul .generic .generic-img {
     padding: 10px 10px 0;
     width: 100%;
 }
+
+#chat-window .message-container .scrolling-container.list ul .generic .generic-img {
+    display: none;
+}
+
 #chat-window .message-container .scrolling-container ul .generic .generic-img .inner {
     height: 100px;
     background: no-repeat center;
@@ -521,7 +543,9 @@
     padding: 10px 15px;
     text-align: left;
     width: 100%;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+#chat-window .message-container .scrolling-container.list ul .generic .generic-info {
+    padding: 0;
 }
 
 #chat-window .message-container .scrolling-container ul .generic .generic-info .title {
@@ -546,12 +570,30 @@
     white-space: normal;
 }
 
+#chat-window .message-container .scrolling-container.list ul .generic .generic-info .title,
+#chat-window .message-container .scrolling-container.list ul .generic .generic-info .subtitle {
+    margin-bottom: 10px;
+}
+
+
 #chat-window .message-container .scrolling-container ul .generic .generic-btn {
     align-self: center;
     text-align: center;
     padding: 6px;
     width: 100%;
     display: block;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+}
+
+#chat-window .message-container .scrolling-container.list ul .generic .generic-btn {
+    align-self: flex-start;
+    width: auto;
+    display: inline-block;
+    border: 1px solid #2F80ED;
+    color: #2F80ED;
+    background: #FFFFFF;
+    border-radius: 5px;
+    font-size: 14px;
 }
 
 #chat-window .message-container .scrolling-container ul .generic .generic-btn:hover {

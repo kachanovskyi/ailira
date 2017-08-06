@@ -260,7 +260,7 @@ $(document).ready(function () {
 
                 var typing = $('.message-container').find($('#wave'));
 
-                if( typing ) {
+                if (typing) {
                     typing.parent().parent().remove();
                 }
 
@@ -273,7 +273,7 @@ $(document).ready(function () {
 
                 // sendBtn.addClass('disabled');
 
-                if(val.sender_action) {
+                if (val.sender_action) {
                     console.log('TYPING');
                     var wave = $('<div id="wave">')
                         .append($('<span class="dot">'))
@@ -306,6 +306,7 @@ $(document).ready(function () {
                         if (val.message.quick_replies) {
                             scrCont = $('<div>')
                                 .addClass('scrolling-container')
+                                .addClass('quick')
                                 .append(
                                     $('<span class="arrow">')
                                         .text('<')
@@ -334,6 +335,10 @@ $(document).ready(function () {
                             val.message.quick_replies.forEach(function (item) {
                                 $('<li>')
                                     .text(item.title)
+                                    .attr('payload', item.payload)
+                                    .click(function () {
+                                        send("btn", $(this))
+                                    })
                                     .appendTo(scrCont.find('ul'));
                             });
 
@@ -343,40 +348,13 @@ $(document).ready(function () {
 
                             if (scrContWidth > parseInt(scrCont.css('width'), 10)) {
                                 scrCont.addClass('scrollable');
+                                console.log(scrContWidth > parseInt(scrCont.css('width'), 10));
+                                console.log(parseInt(scrCont.css('width'), 10));
+
                             }
                         }
 
-                        if (val.message.attachment && val.message.attachment.payload.buttons) {
-                            message.css('border-radius', '10px 10px 0 0');
-                            btnWidth = message.outerWidth();
-
-                            val.message.attachment.payload.buttons.forEach(function (entry) {
-
-                                var btn = $('<a class="chat-message button">').text(entry.title);
-                                    if(btnWidth !== 0) {
-                                        btn.css('width', btnWidth);
-                                    } else {
-                                        btn.css('display', 'inline-block');
-                                    }
-                                if (entry.type === "postback") {
-                                    btn
-                                        .attr('payload', entry.payload)
-                                        .click(function () {
-                                            send("btn", $(this));
-                                        });
-                                } else if (entry.type === "web_url") {
-                                    btn
-                                        .attr('href', entry.url)
-                                        .attr('target', '_blank')
-                                }
-
-                                btn.appendTo(container)
-
-                            });
-                        }
-
                         if (val.message.attachment && val.message.attachment.payload.elements) {
-
                             scrCont = $('<div>')
                                 .addClass('scrolling-container')
                                 .append(
@@ -401,8 +379,14 @@ $(document).ready(function () {
                                 )
                                 .append(
                                     $('<ul>')
-                                )
-                                .appendTo(container);
+                                );
+
+                            if (val.message.attachment.payload.template_type === "list") {
+                                scrCont.addClass('list');
+                            }
+
+                            scrCont.appendTo(container);
+
 
                             val.message.attachment.payload.elements.forEach(function (item) {
                                 var generic = $('<li>').addClass('generic');
@@ -473,12 +457,47 @@ $(document).ready(function () {
                             if (scrContWidth > parseInt(scrCont.css('width'), 10)) {
                                 scrCont.addClass('scrollable');
                             }
-
                             setGenericWidth();
 
                         }
 
-                        sendBtn.removeClass('disabled');
+                        if (val.message.attachment && val.message.attachment.payload.buttons) {
+                            message.css('border-radius', '10px 10px 0 0');
+                            btnWidth = message.outerWidth();
+
+                            val.message.attachment.payload.buttons.forEach(function (entry) {
+
+                                var btn = $('<a class="chat-message button">').text(entry.title);
+                                if (btnWidth !== 0) {
+                                    btn.css('width', btnWidth);
+
+                                } else if ($('.scrolling-container.list') && !btnWidth) {
+                                    btnWidth = parseInt($('.scrolling-container.list').css('width'), 10);
+                                    btn
+                                        .css('max-width', '100%')
+                                        .css('margin', '0')
+                                        .css('width', btnWidth - 10);
+                                } else {
+                                    btn.css('display', 'inline-block');
+                                }
+                                if (entry.type === "postback") {
+                                    btn
+                                        .attr('payload', entry.payload)
+                                        .click(function () {
+                                            send("btn", $(this));
+                                        });
+                                } else if (entry.type === "web_url") {
+                                    btn
+                                        .attr('href', entry.url)
+                                        .attr('target', '_blank')
+                                }
+
+                                btn.appendTo(container)
+
+                            });
+                        }
+
+                        // sendBtn.removeClass('disabled');
                     }, 333);
                 }
 
@@ -492,13 +511,13 @@ $(document).ready(function () {
             var chatId = null;
 
             function connect() {
-                var socket = new SockJS('https://010e8e35.ngrok.io/ailira');
+                // var socket = new SockJS('https://010e8e35.ngrok.io/ailira');
+                var socket = new SockJS('https://pavlenko.botscrew.com/ailira/web');
                 stompClient = Stomp.over(socket);
                 stompClient.connect({}, function (frame) {
                     // setConnected(true);
                     console.log('Connected: ' + frame);
                     stompClient.subscribe('/topic/greetings/' + chatId, function (greeting) {
-                        console.log(JSON.parse(greeting.body));
                         showGreeting(JSON.parse(greeting.body));
                     });
                     sendName("hi");
@@ -561,7 +580,7 @@ $(document).ready(function () {
                 $.ajax({
                     // type: "POST",
                     type: "GET",            //mocked up version, should be post with data: !!!
-                    url: 'https://010e8e35.ngrok.io/ailira/getStarted',
+                    url: 'https://pavlenko.botscrew.com/ailira/web/getStarted',
                     // url: './data/response2.json',
                     // contentType: "application/json; charset=utf-8",
                     // dataType: "json",
@@ -686,10 +705,12 @@ $(document).ready(function () {
             }
 
             function setGenericWidth() {
+
                 genericScrollValue = parseInt($('.chat-container').css('width'), 10);
-                if ($('.generic-info')) {
-                    var scrContWidth = $('.generic-info').parent().parent().css('width');
-                    var scrCont = $('.generic-info').parent().parent();
+                var genInfo = $('.generic-info');
+                if (genInfo && !genInfo.parent().parent().parent().hasClass('list')) {
+                    var scrContWidth = genInfo.parent().parent().css('width');
+                    var scrCont = genInfo.parent().parent();
                     scrCont.find('.generic-info').each(function () {
                         $(this).css('width', scrContWidth);
                         var genImg = $(this).parent().find('.generic-img');
@@ -710,14 +731,10 @@ $(document).ready(function () {
                         function () {
                             var navwidth = scrCont.find('ul');
                             navwidth.scrollLeft(navwidth.scrollLeft() + parseInt(scrContWidth, 10));
-                            console.log(scrContWidth);
                         }
                     );
 
-
                 }
-
-
             }
 
             // $(window).unload(function () {
