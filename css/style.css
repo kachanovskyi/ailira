@@ -260,14 +260,14 @@ a:hover {
 }
 
 .slide-2 .aim-block:first-child .inner {
-    background: linear-gradient( rgba(17, 36, 62, .5), rgba(29, 65, 113, .5)), url("../images/image1.png") center;
+    background: linear-gradient( rgba(17, 36, 62, .5), rgba(29, 65, 113, .5)), url("../images/image1.jpg") center;
 }
 .slide-2 .aim-block:last-child .inner {
-    background: linear-gradient( rgba(17, 36, 62, .5), rgba(29, 65, 113, .5)), url("../images/image3.png") center;
+    background: linear-gradient( rgba(17, 36, 62, .5), rgba(29, 65, 113, .5)), url("../images/image3.jpg") left center;
 }
 
 .slide-2 .aim-block .inner {
-    background: linear-gradient( rgba(17, 36, 62, .5), rgba(29, 65, 113, .5)), url("../images/image2.png") center;
+    background: linear-gradient( rgba(17, 36, 62, .5), rgba(29, 65, 113, .5)), url("../images/image2.jpg") center;
     padding: 20px;
     background-size: cover !important;
     display: flex;
