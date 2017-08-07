@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cc49411e-1ce6-49ec-9725-781dc571a8e4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/about.html" afterPath="$PROJECT_DIR$/about.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/chat.css" afterPath="$PROJECT_DIR$/css/chat.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/chat.js" afterPath="$PROJECT_DIR$/js/chat.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user-guide.html" afterPath="$PROJECT_DIR$/user-guide.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -34,8 +31,8 @@
       <file leaf-file-name="chat.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/chat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="377" column="16" lean-forward="false" selection-start-line="377" selection-start-column="16" selection-end-line="377" selection-end-column="16" />
+            <state relative-caret-position="249">
+              <caret line="392" column="51" lean-forward="false" selection-start-line="392" selection-start-column="51" selection-end-line="392" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -84,8 +81,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="68" lean-forward="false" selection-start-line="28" selection-start-column="68" selection-end-line="28" selection-end-column="68" />
+            <state relative-caret-position="97">
+              <caret line="17" column="35" lean-forward="true" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
               <folding>
                 <element signature="n#style#0;n#iframe#0;n#noscript#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -96,8 +93,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3975">
-              <caret line="265" column="111" lean-forward="false" selection-start-line="265" selection-start-column="111" selection-end-line="265" selection-end-column="111" />
+            <state relative-caret-position="408">
+              <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -114,9 +111,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>F1</find>
-      <find>send-message</find>
-      <find>quick</find>
       <find>scrContW</find>
       <find>conne</find>
       <find>chatinit</find>
@@ -132,7 +126,6 @@
       <find>btnW</find>
       <find>scrollable</find>
       <find>send(&quot;b</find>
-      <find>chatInit</find>
       <find>-4px</find>
       <find>setGenericWidth</find>
       <find>about</find>
@@ -144,6 +137,10 @@
       <find>user</find>
       <find>sendName</find>
       <find>send</find>
+      <find>connect</find>
+      <find>chatInit</find>
+      <find>chatScrollBottom</find>
+      <find>pavlenko</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -170,12 +167,12 @@
         <option value="$PROJECT_DIR$/data/response6.json" />
         <option value="$PROJECT_DIR$/about/individuals.html" />
         <option value="$PROJECT_DIR$/about/about.html" />
-        <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/about.html" />
         <option value="$PROJECT_DIR$/user-guide.html" />
         <option value="$PROJECT_DIR$/css/chat.css" />
         <option value="$PROJECT_DIR$/data/answer.json" />
+        <option value="$PROJECT_DIR$/css/style.css" />
+        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/chat.js" />
       </list>
     </option>
@@ -374,12 +371,12 @@
       <workItem from="1501838909417" duration="11390000" />
       <workItem from="1501922613913" duration="17199000" />
       <workItem from="1502059690430" duration="1618000" />
-      <workItem from="1502087771866" duration="1235000" />
+      <workItem from="1502087771866" duration="2629000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104746000" />
+    <option name="totallyTimeSpent" value="106140000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -744,24 +741,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3975">
-          <caret line="265" column="111" lean-forward="false" selection-start-line="265" selection-start-column="111" selection-end-line="265" selection-end-column="111" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="68" lean-forward="false" selection-start-line="28" selection-start-column="68" selection-end-line="28" selection-end-column="68" />
-          <folding>
-            <element signature="n#style#0;n#iframe#0;n#noscript#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/about.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -794,10 +773,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="17" column="35" lean-forward="true" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+          <folding>
+            <element signature="n#style#0;n#iframe#0;n#noscript#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/chat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="377" column="16" lean-forward="false" selection-start-line="377" selection-start-column="16" selection-end-line="377" selection-end-column="16" />
+        <state relative-caret-position="249">
+          <caret line="392" column="51" lean-forward="false" selection-start-line="392" selection-start-column="51" selection-end-line="392" selection-end-column="51" />
           <folding />
         </state>
       </provider>

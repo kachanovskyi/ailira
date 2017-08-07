@@ -322,13 +322,14 @@ $(document).ready(function () {
             var chatId = null;
 
             function connect() {
-                // var socket = new SockJS('https://010e8e35.ngrok.io/ailira');
-                var socket = new SockJS('https://pavlenko.botscrew.com/ailira/web');
+                var socket = new SockJS('https://010e8e35.ngrok.io/');
+                // var socket = new SockJS('https://pavlenko.botscrew.com/ailira/web');
                 stompClient = Stomp.over(socket);
                 stompClient.connect({}, function (frame) {
                     // setConnected(true);
                     console.log('Connected: ' + frame);
                     stompClient.subscribe('/topic/greetings/' + chatId, function (greeting) {
+                        console.log(greeting);
                         showGreeting(JSON.parse(greeting.body));
                     });
                     sendName("hi");
@@ -375,7 +376,7 @@ $(document).ready(function () {
                         text: message
                     }
                 }
-                
+
                 stompClient.send("/app/hello", {}, JSON.stringify(data));
             }
 
@@ -389,7 +390,8 @@ $(document).ready(function () {
                 $.ajax({
                     // type: "POST",
                     type: "GET",            //mocked up version, should be post with data: !!!
-                    url: 'https://pavlenko.botscrew.com/ailira/web/getStarted',
+                    url: 'https://010e8e35.ngrok.io/web/getStarted',
+                    // url: 'https://pavlenko.botscrew.com/ailira/web/getStarted',
                     // url: './data/response2.json',
                     // contentType: "application/json; charset=utf-8",
                     // dataType: "json",
