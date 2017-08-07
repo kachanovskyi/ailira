@@ -382,10 +382,10 @@
 
 #chat-window .message-container .chat-message.user {
     float: right;
-    /*background: #FAFAFA;*/
+    background: #2F80ED;
     /*box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.1);*/
     border-radius: 10px;
-    /*color: #2F80ED;*/
+    color: #FFFFFF;
     text-align: left;
 }
 
