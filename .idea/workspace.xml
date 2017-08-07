@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc49411e-1ce6-49ec-9725-781dc571a8e4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/chat.js" afterPath="$PROJECT_DIR$/js/chat.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -31,8 +29,8 @@
       <file leaf-file-name="chat.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/chat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="392" column="51" lean-forward="false" selection-start-line="392" selection-start-column="51" selection-end-line="392" selection-end-column="51" />
+            <state relative-caret-position="362">
+              <caret line="324" column="70" lean-forward="false" selection-start-line="324" selection-start-column="70" selection-end-line="324" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -111,7 +109,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>scrContW</find>
       <find>conne</find>
       <find>chatinit</find>
       <find>scrCon</find>
@@ -141,6 +138,7 @@
       <find>chatInit</find>
       <find>chatScrollBottom</find>
       <find>pavlenko</find>
+      <find>ngrok</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -371,12 +369,12 @@
       <workItem from="1501838909417" duration="11390000" />
       <workItem from="1501922613913" duration="17199000" />
       <workItem from="1502059690430" duration="1618000" />
-      <workItem from="1502087771866" duration="2629000" />
+      <workItem from="1502087771866" duration="3045000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106140000" />
+    <option name="totallyTimeSpent" value="106556000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -793,8 +791,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/chat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="392" column="51" lean-forward="false" selection-start-line="392" selection-start-column="51" selection-end-line="392" selection-end-column="51" />
+        <state relative-caret-position="362">
+          <caret line="324" column="70" lean-forward="false" selection-start-line="324" selection-start-column="70" selection-end-line="324" selection-end-column="70" />
           <folding />
         </state>
       </provider>

@@ -322,7 +322,7 @@ $(document).ready(function () {
             var chatId = null;
 
             function connect() {
-                var socket = new SockJS('https://010e8e35.ngrok.io/');
+                var socket = new SockJS('https://010e8e35.ngrok.io/web');
                 // var socket = new SockJS('https://pavlenko.botscrew.com/ailira/web');
                 stompClient = Stomp.over(socket);
                 stompClient.connect({}, function (frame) {
