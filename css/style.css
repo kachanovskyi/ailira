@@ -139,12 +139,12 @@ a:hover {
     margin-left: -1px;
     -webkit-border-radius: 0 6px 6px 6px;
     -moz-border-radius: 0 6px 6px;
-    border-radius: 0 6px 6px 6px;
+    border-radius: 4px;
 }
 
-.dropdown-submenu:hover>.dropdown-menu {
-    display: block;
-}
+/*.dropdown-submenu:hover>.dropdown-menu {*/
+    /*display: block;*/
+/*}*/
 
 .dropdown-submenu>a:after {
     display: block;
@@ -155,7 +155,7 @@ a:hover {
     border-color: transparent;
     border-style: solid;
     border-width: 5px 0 5px 5px;
-    border-left-color: #ccc;
+    border-left-color: #333;
     margin-top: 5px;
     margin-right: -10px;
 }
@@ -185,6 +185,13 @@ a:hover {
 
 .navbar-default .nav li .dropdown-menu li a {
     padding: 20px;
+}
+
+.rev{
+    left:auto !important;
+    right:100% !important;
+    top:8px !important;
+    margin-right:-12px !important;
 }
 
 .slide-1 {

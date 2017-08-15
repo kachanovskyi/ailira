@@ -345,7 +345,7 @@ $(document).ready(function () {
                 stompClient.connect({}, function (frame) {
                     // setConnected(true);
                     console.log('Connected: ' + frame);
-                    stompClient.subscribe('/topic/greetings/', function (greeting) {
+                    stompClient.subscribe('/topic/greetings/' + chatId, function (greeting) {
                         console.log(greeting);
                         showGreeting(JSON.parse(greeting.body));
                     });
