@@ -82,8 +82,6 @@ $(document).ready(function () {
                 )
                 .prependTo($('#chat-window').find('.message-container'));
 
-
-            chatInit();
             chatWindowShow();
 
             function chatWindowShow() {
