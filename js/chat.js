@@ -1,6 +1,27 @@
 //© All rights reserved. BotsCrew 2017
 $(document).ready(function () {
 
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: 1975921582622675,
+            autoLogAppEvents: true,
+            xfbml: true,
+            version: 'v2.10'
+        });
+        FB.AppEvents.logPageView();
+    };
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
     (function () {
         var root = './';
         var navHeight = 82,
@@ -97,7 +118,7 @@ $(document).ready(function () {
                     );
                 }
 
-                if (val.message !== null) {
+                if ((val.message !== null) && (val.message !== undefined)) {
                     if (val.message.text !== undefined) {
                         message.text(val.message.text);
                     } else if (val.message.attachment !== undefined) {
@@ -317,9 +338,7 @@ $(document).ready(function () {
 
             }
 
-
             var stompClient = null;
-            var chatId = null;
 
             function connect() {
                 var socket = new SockJS('https://010e8e35.ngrok.io/web');
@@ -328,7 +347,7 @@ $(document).ready(function () {
                 stompClient.connect({}, function (frame) {
                     // setConnected(true);
                     console.log('Connected: ' + frame);
-                    stompClient.subscribe('/topic/greetings/' + chatId, function (greeting) {
+                    stompClient.subscribe('/topic/greetings/', function (greeting) {
                         console.log(greeting);
                         showGreeting(JSON.parse(greeting.body));
                     });
@@ -367,7 +386,7 @@ $(document).ready(function () {
                     ]
                 };
 
-                if(param === "btn") {
+                if (param === "btn") {
                     data.entry[0].messaging[0].postback = {
                         payload: message
                     }
@@ -384,25 +403,62 @@ $(document).ready(function () {
                 setResponse(message);
             }
 
+            var chatId = null,
+                accessToken = null;
 
-            function chatInit() {
+            $(window).load(function () {
 
+                FB.getLoginStatus(function (response) {
+
+                    if (response.status === 'connected') {
+                        console.log('Logged in.');
+                        FB.api('/me', function (response) {
+                            console.log('Good to see you, ', response.id);
+                            chatId = response.id;
+                            accessToken = FB.getAuthResponse()['accessToken'];
+                            console.log(chatId);
+                            console.log(accessToken);
+                            chatInit(chatId, accessToken);
+                        });
+                    }
+                    else {
+                        FB.login(function () {
+                            FB.api('/me', function (response) {
+                                console.log('Good to see you, ', response);
+                                chatId = response.id;
+                                if (response.authResponse) {
+                                    accessToken = FB.getAuthResponse()['accessToken'];
+                                }
+                                console.log(chatId);
+                                console.log(accessToken);
+                                chatInit(chatId, accessToken);
+                            });
+                        });
+                    }
+                });
+
+            });
+
+            function chatInit(id, token) {
+
+                var data = {
+                    id: id,
+                    token: token
+                };
                 $.ajax({
-                    // type: "POST",
-                    type: "GET",            //mocked up version, should be post with data: !!!
+                    type: "POST",
+                    // type: "GET",            //mocked up version, should be post with data: !!!
                     url: 'https://010e8e35.ngrok.io/web/getStarted',
                     // url: 'https://pavlenko.botscrew.com/ailira/web/getStarted',
-                    // url: './data/response2.json',
-                    // contentType: "application/json; charset=utf-8",
-                    // dataType: "json",
-                    // data: JSON.stringify(data),
+                    // url: './data/file.json',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: JSON.stringify(data),
 
                     success: function (id) {
                         // setResponse(id);
-                        chatId = id;
+                        // chatId = id;
                         connect();
-
-                        $('.start-screen').fadeOut("fast");
                     },
                     error: function () {
                         console.log("Internal Server Error. Not possible to get chat id.");
@@ -450,6 +506,20 @@ $(document).ready(function () {
                 }
 
             }
+
+            var saveByteArray = (function () {
+                var a = document.createElement("a");
+                document.body.appendChild(a);
+                a.style = "display: none";
+                return function (data, name) {
+                    var blob = new Blob(data, {type: "octet/stream"}),
+                        url = window.URL.createObjectURL(blob);
+                    a.href = url;
+                    a.download = name;
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                };
+            }());
 
             function chatScrollBottom() {
                 $(".message-container").animate({scrollTop: $('.message-container').prop("scrollHeight")}, 0);
