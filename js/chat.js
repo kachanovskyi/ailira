@@ -411,57 +411,100 @@ $(document).ready(function () {
                     if (response.status === 'connected') {
                         console.log('Logged in.');
                         FB.api('/me', function (response) {
-                            console.log('Good to see you, ', response.id);
                             chatId = response.id;
                             accessToken = FB.getAuthResponse()['accessToken'];
-                            console.log(chatId);
-                            console.log(accessToken);
                             chatInit(chatId, accessToken);
                         });
                     }
                     else {
                         FB.login(function () {
                             FB.api('/me', function (response) {
-                                console.log('Good to see you, ', response);
                                 chatId = response.id;
                                 if (response.authResponse) {
                                     accessToken = FB.getAuthResponse()['accessToken'];
                                 }
-                                console.log(chatId);
-                                console.log(accessToken);
                                 chatInit(chatId, accessToken);
                             });
                         });
                     }
                 });
 
+                gapi.load('client', initClient);
             });
+
+
+            function initClient() {
+                // Initialize the client with API key and People API, and initialize OAuth with an
+                // OAuth 2.0 client ID and scopes (space delimited string) to request access.
+                gapi.client.init({
+                    apiKey: 'http://314496251274-mv0nrm40lkqgbtadvur27q4cihmnjosh.apps.googleusercontent.com/',
+                    discoveryDocs: ["https://people.googleapis.com/$discovery/rest?version=v1"],
+                    clientId: 'YOUR_WEB_CLIENT_ID.apps.googleusercontent.com',
+                    scope: 'profile'
+                }).then(function () {
+                    // Listen for sign-in state changes.
+                    gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+
+                    // Handle the initial sign-in state.
+                    updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+                });
+            }
+
+            function updateSigninStatus(isSignedIn) {
+                // When signin status changes, this function is called.
+                // If the signin status is changed to signedIn, we make an API call.
+                if (isSignedIn) {
+                    makeApiCall();
+                }
+            }
+
+            function handleSignInClick(event) {
+                // Ideally the button should only show up after gapi.client.init finishes, so that this
+                // handler won't be called before OAuth is initialized.
+                gapi.auth2.getAuthInstance().signIn();
+            }
+
+            function handleSignOutClick(event) {
+                gapi.auth2.getAuthInstance().signOut();
+            }
+
+            function makeApiCall() {
+                // Make an API call to the People API, and print the user's given name.
+                gapi.client.people.people.get({
+                    'resourceName': 'people/me',
+                    'requestMask.includeField': 'person.names'
+                }).then(function(response) {
+                    console.log('Hello, ' + response.result.names[0].givenName);
+                }, function(reason) {
+                    console.log('Error: ' + reason.result.error.message);
+                });
+            }
 
             function chatInit(id, token) {
 
-                var data = {
-                    id: id,
-                    token: token
-                };
-                $.ajax({
-                    type: "POST",
-                    // type: "GET",            //mocked up version, should be post with data: !!!
-                    url: 'https://010e8e35.ngrok.io/web/getStarted',
-                    // url: 'https://pavlenko.botscrew.com/ailira/web/getStarted',
-                    // url: './data/file.json',
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    data: JSON.stringify(data),
-
-                    success: function (id) {
-                        // setResponse(id);
-                        // chatId = id;
-                        connect();
-                    },
-                    error: function () {
-                        console.log("Internal Server Error. Not possible to get chat id.");
-                    }
-                });
+                // var data = {
+                //     id: id,
+                //     token: token
+                // };
+                // $.ajax({
+                //     type: "POST",
+                //     // type: "GET",            //mocked up version, should be post with data: !!!
+                //     url: 'https://010e8e35.ngrok.io/web/getStarted',
+                //     // url: 'https://pavlenko.botscrew.com/ailira/web/getStarted',
+                //     // url: './data/file.json',
+                //     contentType: "application/json; charset=utf-8",
+                //     dataType: "json",
+                //     data: JSON.stringify(data),
+                //
+                //     success: function (id) {
+                //         // setResponse(id);
+                //         // chatId = id;
+                //         connect();
+                //     },
+                //     error: function () {
+                //         console.log("Internal Server Error. Not possible to get chat id.");
+                //     }
+                // });
 
             }
 
@@ -504,20 +547,6 @@ $(document).ready(function () {
                 }
 
             }
-
-            var saveByteArray = (function () {
-                var a = document.createElement("a");
-                document.body.appendChild(a);
-                a.style = "display: none";
-                return function (data, name) {
-                    var blob = new Blob(data, {type: "octet/stream"}),
-                        url = window.URL.createObjectURL(blob);
-                    a.href = url;
-                    a.download = name;
-                    a.click();
-                    window.URL.revokeObjectURL(url);
-                };
-            }());
 
             function chatScrollBottom() {
                 $(".message-container").animate({scrollTop: $('.message-container').prop("scrollHeight")}, 0);
