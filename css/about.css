@@ -39,3 +39,15 @@ p {
 .learn-link:hover {
     color: #3A87F0;
 }
+
+table {
+    width: 100%;
+}
+
+table th,
+table td {
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 4px;
+}

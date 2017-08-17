@@ -3,7 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="cc49411e-1ce6-49ec-9725-781dc571a8e4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/chat.js" afterPath="$PROJECT_DIR$/js/chat.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/about.html" afterPath="$PROJECT_DIR$/about.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/about.css" afterPath="$PROJECT_DIR$/css/about.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/advanced-business-structures.html" afterPath="$PROJECT_DIR$/law-library/advanced-business-structures.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/domestic-violence.html" afterPath="$PROJECT_DIR$/law-library/domestic-violence.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/company-owned-by-multiple-discretionary-trusts.html" afterPath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/company-owned-by-multiple-discretionary-trusts.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/partnership-of-discretionary-trusts.html" afterPath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/partnership-of-discretionary-trusts.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/partnership-of-individuals.html" afterPath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/partnership-of-individuals.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/unit-trust.html" afterPath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/unit-trust.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/single-founder-business-structures/company-owned-by-one-discretionary-trust.html" afterPath="$PROJECT_DIR$/law-library/single-founder-business-structures/company-owned-by-one-discretionary-trust.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/single-founder-business-structures/discretionary-trust-single-founder-business-model.html" afterPath="$PROJECT_DIR$/law-library/single-founder-business-structures/discretionary-trust-single-founder-business-model.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/single-founder-business-structures/hobby.html" afterPath="$PROJECT_DIR$/law-library/single-founder-business-structures/hobby.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/single-founder-business-structures/sole-trader.html" afterPath="$PROJECT_DIR$/law-library/single-founder-business-structures/sole-trader.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/wills-and-estate-planning/estate-planning-faq.html" afterPath="$PROJECT_DIR$/law-library/wills-and-estate-planning/estate-planning-faq.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user-guide.html" afterPath="$PROJECT_DIR$/user-guide.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,64 +31,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="chat.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/chat.js">
+      <file leaf-file-name="user-guide.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/user-guide.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="439" column="68" lean-forward="false" selection-start-line="439" selection-start-column="68" selection-end-line="439" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="unit-trust.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/law-library/multiple-founder-business-structures/unit-trust.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="41" column="73" lean-forward="false" selection-start-line="41" selection-start-column="73" selection-end-line="41" selection-end-column="73" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="company-owned-by-one-discretionary-trust.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/law-library/single-founder-business-structures/company-owned-by-one-discretionary-trust.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="47" column="136" lean-forward="false" selection-start-line="47" selection-start-column="136" selection-end-line="47" selection-end-column="136" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="222" column="61" lean-forward="false" selection-start-line="222" selection-start-column="61" selection-end-line="222" selection-end-column="61" />
+            <state relative-caret-position="240">
+              <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#iframe#0;n#noscript#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#nav#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="discretionary-trust-single-founder-business-model.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/law-library/single-founder-business-structures/discretionary-trust-single-founder-business-model.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="48" column="156" lean-forward="false" selection-start-line="48" selection-start-column="156" selection-end-line="48" selection-end-column="156" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hobby.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/law-library/single-founder-business-structures/hobby.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1530">
-              <caret line="102" column="12" lean-forward="false" selection-start-line="102" selection-start-column="12" selection-end-line="102" selection-end-column="12" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -82,29 +46,21 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2010">
+            <state relative-caret-position="747">
               <caret line="134" column="34" lean-forward="true" selection-start-line="134" selection-start-column="34" selection-end-line="134" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sole-trader.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/law-library/single-founder-business-structures/sole-trader.html">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1905">
-              <caret line="127" column="12" lean-forward="false" selection-start-line="127" selection-start-column="12" selection-end-line="127" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="estate-planning-faq.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/law-library/wills-and-estate-planning/estate-planning-faq.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="68" column="94" lean-forward="false" selection-start-line="68" selection-start-column="94" selection-end-line="68" selection-end-column="94" />
-              <folding />
+            <state relative-caret-position="444">
+              <caret line="285" column="20" lean-forward="true" selection-start-line="285" selection-start-column="20" selection-end-line="285" selection-end-column="20" />
+              <folding>
+                <element signature="n#style#0;n#iframe#0;n#noscript#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,9 +76,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>btnW</find>
-      <find>scrollable</find>
-      <find>send(&quot;b</find>
       <find>-4px</find>
       <find>setGenericWidth</find>
       <find>about</find>
@@ -150,6 +103,9 @@
       <find>click</find>
       <find>greetin</find>
       <find>google</find>
+      <find>What is the difference between an inter vivos discretionary trust and a testamentary discretionary trust?</find>
+      <find>href</find>
+      <find>3</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -178,25 +134,26 @@
         <option value="$PROJECT_DIR$/about/about.html" />
         <option value="$PROJECT_DIR$/data/answer.json" />
         <option value="$PROJECT_DIR$/data/file.json" />
-        <option value="$PROJECT_DIR$/user-guide.html" />
         <option value="$PROJECT_DIR$/css/chat.css" />
-        <option value="$PROJECT_DIR$/law-library/advanced-business-structures.html" />
-        <option value="$PROJECT_DIR$/law-library/domestic-violence.html" />
-        <option value="$PROJECT_DIR$/css/about.css" />
-        <option value="$PROJECT_DIR$/about.html" />
-        <option value="$PROJECT_DIR$/law-library/multiple-founder-business-structures/company-owned-by-multiple-discretionary-trusts.html" />
         <option value="$PROJECT_DIR$/js/index.js" />
         <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/law-library/multiple-founder-business-structures/partnership-of-discretionary-trusts.html" />
-        <option value="$PROJECT_DIR$/law-library/multiple-founder-business-structures/partnership-of-individuals.html" />
-        <option value="$PROJECT_DIR$/law-library/multiple-founder-business-structures/unit-trust.html" />
-        <option value="$PROJECT_DIR$/law-library/single-founder-business-structures/company-owned-by-one-discretionary-trust.html" />
-        <option value="$PROJECT_DIR$/law-library/single-founder-business-structures/discretionary-trust-single-founder-business-model.html" />
-        <option value="$PROJECT_DIR$/law-library/single-founder-business-structures/hobby.html" />
-        <option value="$PROJECT_DIR$/law-library/single-founder-business-structures/sole-trader.html" />
-        <option value="$PROJECT_DIR$/law-library/wills-and-estate-planning/estate-planning-faq.html" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/chat.js" />
+        <option value="$PROJECT_DIR$/css/about.css" />
+        <option value="$PROJECT_DIR$/law-library/wills-and-estate-planning/estate-planning-glossary.html" />
+        <option value="$PROJECT_DIR$/law-library/wills-and-estate-planning/estate-planning-faq.html" />
+        <option value="$PROJECT_DIR$/law-library/single-founder-business-structures/sole-trader.html" />
+        <option value="$PROJECT_DIR$/law-library/single-founder-business-structures/hobby.html" />
+        <option value="$PROJECT_DIR$/law-library/single-founder-business-structures/discretionary-trust-single-founder-business-model.html" />
+        <option value="$PROJECT_DIR$/law-library/single-founder-business-structures/company-owned-by-one-discretionary-trust.html" />
+        <option value="$PROJECT_DIR$/law-library/multiple-founder-business-structures/unit-trust.html" />
+        <option value="$PROJECT_DIR$/law-library/multiple-founder-business-structures/partnership-of-individuals.html" />
+        <option value="$PROJECT_DIR$/law-library/multiple-founder-business-structures/partnership-of-discretionary-trusts.html" />
+        <option value="$PROJECT_DIR$/law-library/multiple-founder-business-structures/company-owned-by-multiple-discretionary-trusts.html" />
+        <option value="$PROJECT_DIR$/law-library/advanced-business-structures.html" />
+        <option value="$PROJECT_DIR$/law-library/domestic-violence.html" />
+        <option value="$PROJECT_DIR$/about.html" />
+        <option value="$PROJECT_DIR$/user-guide.html" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -232,6 +189,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -254,29 +213,10 @@
               <item name="ailira" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ailira" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ailira" type="462c0819:PsiDirectoryNode" />
-              <item name="law-library" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ailira" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ailira" type="462c0819:PsiDirectoryNode" />
-              <item name="law-library" type="462c0819:PsiDirectoryNode" />
-              <item name="single-founder-business-structures" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ailira" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ailira" type="462c0819:PsiDirectoryNode" />
-              <item name="law-library" type="462c0819:PsiDirectoryNode" />
-              <item name="wills-and-estate-planning" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -286,15 +226,15 @@
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/law-library/wills-and-estate-planning" />
       <recent name="$PROJECT_DIR$/law-library/single-founder-business-structures" />
       <recent name="$PROJECT_DIR$/law-library/multiple-founder-business-structures" />
       <recent name="$PROJECT_DIR$/law-library" />
       <recent name="$PROJECT_DIR$/data" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -415,18 +355,19 @@
       <workItem from="1502179018505" duration="217000" />
       <workItem from="1502704099260" duration="16523000" />
       <workItem from="1502811262944" duration="1944000" />
-      <workItem from="1502875530148" duration="266000" />
+      <workItem from="1502875530148" duration="361000" />
+      <workItem from="1502955473266" duration="7055000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132913000" />
+    <option name="totallyTimeSpent" value="140063000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2508809" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25229034" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -457,16 +398,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#iframe#0;n#noscript#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -655,125 +586,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user-guide.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1710">
-          <caret line="138" column="16" lean-forward="false" selection-start-line="138" selection-start-column="16" selection-end-line="138" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/chat.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="106" column="6" lean-forward="false" selection-start-line="106" selection-start-column="6" selection-end-line="106" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/law-library/advanced-business-structures.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="29" column="38" lean-forward="false" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/law-library/domestic-violence.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="73" column="105" lean-forward="false" selection-start-line="73" selection-start-column="105" selection-end-line="73" selection-end-column="105" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/about.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="43" lean-forward="false" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/about.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="717">
-          <caret line="141" column="34" lean-forward="true" selection-start-line="141" selection-start-column="34" selection-end-line="141" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/law-library/multiple-founder-business-structures/company-owned-by-multiple-discretionary-trusts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2490">
-          <caret line="166" column="0" lean-forward="false" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/law-library/multiple-founder-business-structures/partnership-of-discretionary-trusts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="58" lean-forward="false" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/law-library/multiple-founder-business-structures/partnership-of-individuals.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="104" lean-forward="true" selection-start-line="39" selection-start-column="104" selection-end-line="39" selection-end-column="104" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/law-library/multiple-founder-business-structures/unit-trust.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="73" lean-forward="false" selection-start-line="41" selection-start-column="73" selection-end-line="41" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/law-library/single-founder-business-structures/company-owned-by-one-discretionary-trust.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="47" column="136" lean-forward="false" selection-start-line="47" selection-start-column="136" selection-end-line="47" selection-end-column="136" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/law-library/single-founder-business-structures/discretionary-trust-single-founder-business-model.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="48" column="156" lean-forward="false" selection-start-line="48" selection-start-column="156" selection-end-line="48" selection-end-column="156" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/law-library/single-founder-business-structures/hobby.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="102" column="12" lean-forward="false" selection-start-line="102" selection-start-column="12" selection-end-line="102" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/law-library/single-founder-business-structures/sole-trader.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1905">
-          <caret line="127" column="12" lean-forward="false" selection-start-line="127" selection-start-column="12" selection-end-line="127" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/law-library/wills-and-estate-planning/estate-planning-faq.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="68" column="94" lean-forward="false" selection-start-line="68" selection-start-column="94" selection-end-line="68" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2010">
-          <caret line="134" column="34" lean-forward="true" selection-start-line="134" selection-start-column="34" selection-end-line="134" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -786,21 +602,167 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/js/chat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="222" column="61" lean-forward="false" selection-start-line="222" selection-start-column="61" selection-end-line="222" selection-end-column="61" />
+        <state relative-caret-position="204">
+          <caret line="436" column="74" lean-forward="false" selection-start-line="436" selection-start-column="74" selection-end-line="436" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/about.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="732">
+          <caret line="51" column="16" lean-forward="false" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/law-library/wills-and-estate-planning/estate-planning-glossary.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4110">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#iframe#0;n#noscript#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#nav#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/chat.js">
+    <entry file="file://$PROJECT_DIR$/law-library/wills-and-estate-planning/estate-planning-faq.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="439" column="68" lean-forward="false" selection-start-line="439" selection-start-column="68" selection-end-line="439" selection-end-column="68" />
+        <state relative-caret-position="602">
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/law-library/single-founder-business-structures/sole-trader.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="73" column="78" lean-forward="false" selection-start-line="73" selection-start-column="78" selection-end-line="73" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/law-library/single-founder-business-structures/hobby.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding>
+            <element signature="n#nav#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/law-library/single-founder-business-structures/discretionary-trust-single-founder-business-model.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="719">
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/law-library/single-founder-business-structures/company-owned-by-one-discretionary-trust.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding>
+            <element signature="n#nav#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/law-library/multiple-founder-business-structures/unit-trust.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding>
+            <element signature="n#nav#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/law-library/multiple-founder-business-structures/partnership-of-individuals.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding>
+            <element signature="n#nav#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/law-library/multiple-founder-business-structures/partnership-of-discretionary-trusts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding>
+            <element signature="n#nav#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/law-library/multiple-founder-business-structures/company-owned-by-multiple-discretionary-trusts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding>
+            <element signature="n#nav#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/law-library/advanced-business-structures.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-903">
+          <caret line="81" column="36" lean-forward="true" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/law-library/domestic-violence.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="81" column="36" lean-forward="false" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/about.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding>
+            <element signature="n#nav#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="747">
+          <caret line="134" column="34" lean-forward="true" selection-start-line="134" selection-start-column="34" selection-end-line="134" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user-guide.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding>
+            <element signature="n#nav#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="285" column="20" lean-forward="true" selection-start-line="285" selection-start-column="20" selection-end-line="285" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#iframe#0;n#noscript#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
