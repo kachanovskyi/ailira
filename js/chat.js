@@ -437,9 +437,9 @@ $(document).ready(function () {
                 // Initialize the client with API key and People API, and initialize OAuth with an
                 // OAuth 2.0 client ID and scopes (space delimited string) to request access.
                 gapi.client.init({
-                    apiKey: 'AIzaSyA_EtdseNIE8UVrQXXEWWHlII_zkW9ahd8',
+                    apiKey: 'AIzaSyBxI_qitnT0piafxGBgnQ_c6AfcRJeJ41E',
                     discoveryDocs: ["https://people.googleapis.com/$discovery/rest?version=v1"],
-                    clientId: 'http://314496251274-esp5rih0l9ue2sj3k0irkoh7h9tsu5de.apps.googleusercontent.com/',
+                    clientId: 'http://314496251274-l1emjpbm5p1o4l0ap7gh4f9k3fi4iupa.apps.googleusercontent.com/',
                     scope: 'profile'
                 }).then(function () {
                     // Listen for sign-in state changes.

@@ -1,0 +1,122 @@
+.content {
+    padding-top: 15px;
+}
+
+.content img {
+    width: 100%;
+    margin: 30px 0 50px;
+}
+
+.top {
+    padding: 20px;
+    background: url("../images/blog-bg.png") no-repeat center;
+    background-size: cover;
+    min-height: 333px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.top .heading {
+    font-size: 16px;
+    font-weight: 200;
+    margin: 0;
+    color: #ffffff;
+    opacity: .9;
+}
+.top h1 {
+    color: #ffffff;
+    margin: 0;
+    line-height: 120%;
+}
+.top .author {
+    font-size: 14px;
+    color: #FFFFFF;
+    margin: 0;
+    opacity: .84;
+    font-weight: 200;
+}
+
+.quote {
+    font-size: 18px;
+    line-height: 26px;
+    border-left: 4px solid #C4C4C4;
+    margin: 30px -40px 0;
+    padding: 0 20px 0;
+    float: left;
+    display: block;
+}
+
+.share {
+    margin-top: 50px;
+    float: left;
+    width: 100%;
+}
+
+.share > span {
+    margin-right: 20px;
+    vertical-align: middle;
+    font-size: 16px;
+}
+.share .share-link {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 4px;
+    margin-right: 4px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.share .share-link:hover {
+    text-decoration: none;
+}
+
+.share .share-link i {
+    margin-right: 5px;
+}
+
+.share .share-link.fb {
+    background-color: #3b5998;
+}
+.share .share-link.tw {
+    background-color: #4099FF;
+}
+.share .share-link.li {
+    background-color: #0e76a8;
+}
+.share .share-link.goo {
+    background-color: #d34836;
+}
+
+.related {
+    float: left;
+}
+.related > h3 {
+    margin: 50px 0;
+    text-align: center;
+}
+
+.related .article-link {
+    float: left;
+}
+
+@media (max-width: 1199px) {
+    .share {
+        text-align: center;
+    }
+    .share .share-link {
+        padding: 8px 24px;
+    }
+
+    .share .share-link span {
+        display: none;
+    }
+
+    .share .share-link i {
+        margin-right: 0;
+    }
+
+}
