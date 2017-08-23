@@ -1,0 +1,22 @@
+.partnership-item img {
+    width: 32px;
+    vertical-align: top;
+    margin-right: 18px;
+}
+
+.partnership-item p {
+    color: #333333;
+    display: inline-block;
+    line-height: 140%;
+    margin-bottom: 30px;
+}
+
+.partnership-item .info {
+    display: inline-block;
+    width: calc(100% - 36px - 18px);
+    vertical-align: top;
+}
+
+.learn-more-btn.blue {
+    margin-top: 30px;
+}

@@ -1,4 +1,16 @@
 $(document).ready(function () {
+    var activePage = 1;
+    var pages = $('.pagination li:not(.prev, .next)');
+    var pagePosts = 6;
+    var $elem = null,
+        location = 'blog';
+
+    if(window.location.href.includes('newsroom')) {
+        $elem = $('.newsroom-link');
+        location = 'newsroom';
+    } else if (window.location.href.includes('blog')) {
+        $elem = $('.article-link');
+    }
 
     var createGroupedArray = function(arr, chunkSize) {
         var groups = [], i;
@@ -9,8 +21,8 @@ $(document).ready(function () {
     };
 
     var showPagePosts = function () {
-        var posts = createGroupedArray($('.article-link'), pagePosts)[activePage - 1];
-        $('.article-link').each(function () {
+        var posts = createGroupedArray($elem, pagePosts)[activePage - 1];
+        $elem.each(function () {
             $(this).addClass('hidden')
         });
         posts.each(function () {
@@ -18,17 +30,6 @@ $(document).ready(function () {
             setPostsHeight();
         })
     };
-
-    var activePage = 1;
-    var pages = $('.pagination li:not(.prev, .next)');
-    var pagePosts = 6;
-    var location = '';
-
-    // if(window.location.href.includes('newsroom')) {
-    //     location = 'newsroom';
-    // } else if (window.location.href.includes('blog')) {
-    //     location = 'blog';
-    // }
 
     pages.on("click", function () {
         if( !$(this).is('.active') ) {
@@ -66,10 +67,15 @@ $(document).ready(function () {
     });
 
     var setPostsHeight = function () {
-        $('.article-link').each(function () {
-            var height = $(this).css('width');
-            $(this).css('height', height);
-        });
+
+        if(location === "blog") {
+            $elem.each(function () {
+                var height = $(this).css('width');
+                $(this).css('height', height);
+            });
+        }
+
     };
 
+    showPagePosts();
 });

@@ -1,0 +1,62 @@
+.contact-item {
+    margin-bottom: 30px;
+}
+
+.contact-item p {
+    margin: 0;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.contact-item img {
+    vertical-align: middle;
+}
+
+#contactForm {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#contactForm input[type=text],
+#contactForm input[type=email],
+#contactForm input[type=tel],
+#contactForm textarea {
+    width: 100%;
+    height: 56px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    margin: 0 auto 20px;
+    font-size: 18px;
+    line-height: 100%;
+    font-weight: 300;
+    color: #333333;
+    padding: 0 20px;
+}
+
+#contactForm #firstName, #contactForm #lastName {
+    width: calc(49% - 10px);
+    float: left;
+}
+
+#contactForm #lastName {
+    float: right;
+}
+
+#contactForm textarea {
+    padding-top: 16px;
+    line-height: 140%;
+}
+
+#contactForm input:focus, #contactForm textarea:focus {
+    outline: none;
+}
+
+#contactForm input::-webkit-input-placeholder, #contactForm textarea::-webkit-input-placeholder {
+    color: #828288;
+}
+
+#contactForm input[type=submit] {
+    margin: 0;
+    padding: 15px 50px;
+}

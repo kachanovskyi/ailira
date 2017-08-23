@@ -1,0 +1,34 @@
+.newsroom-link:nth-of-type(even) {
+    padding: 0 0 20px 10px;
+}
+
+a.newsroom-link {
+    padding: 0 10px 20px 0;
+    text-decoration: none !important;
+    color:#000000;
+}
+a.newsroom-link:hover h3 {
+    text-decoration: underline;
+}
+
+
+.newsroom-link img {
+    width: 100%;
+}
+.newsroom-link h3 {
+    margin: 20px 0;
+}
+.newsroom-link .post-date {
+    margin: 0;
+    font-size: 14px;
+    color: #000000;
+    font-weight: 300;
+}
+
+.pagination {
+    width: 100%;
+    text-align: center;
+}
+.pagination li {
+    display: inline-block;
+}
