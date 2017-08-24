@@ -39,13 +39,44 @@ $(document).ready(function () {
             var Mac = !!ua.match(/Macintosh/i);
 
             var $w = $(window);
+            var chatWindow = $('#chat-window');
 
             var messageContainer = $('<div class="message-container">')
                 .attr('id', 'messageContainer')
                 .css('width', '100%')
                 .css('height', '100%')
                 .css('background-size', '100%')
-                .appendTo($('#chat-window'));
+                .appendTo(chatWindow);
+
+
+            $('<div class="start-screen">')
+                .append(
+                    $('<div class="inner">')
+                        .append(
+                            $('<p class="description">')
+                                .text("To continue chat to Ailira, please login using one of the social networks below")
+                        )
+                        .append(
+                            $('<a class="login-btn fb">')
+                                .append(
+                                    $('<span class="logo">').text('f')
+                                )
+                                .append(
+                                    $('<span class="text">').text('Login with Facebook')
+                                )
+                        )
+                        .append(
+                            $('<a class="login-btn goo">')
+                                .append(
+                                    $('<span class="logo">').text('G')
+                                )
+                                .append(
+                                    $('<span class="text">').text('Login with Google')
+                                )
+                        )
+                )
+                .appendTo(chatWindow);
+
 
             $('<div class="chat-bottom">')
                 .css('height', '58px')
@@ -71,7 +102,7 @@ $(document).ready(function () {
                             // .click(sendName)
                         )
                 )
-                .appendTo($('#chat-window'));
+                .appendTo(chatWindow);
 
 
             $('<div class="message-outer bot">')
@@ -80,12 +111,12 @@ $(document).ready(function () {
                 .append(
                     $('<div class="chat-message bot purple">').text("I'm hidden:)")
                 )
-                .prependTo($('#chat-window').find('.message-container'));
+                .prependTo(chatWindow.find('.message-container'));
 
             chatWindowShow();
 
             function chatWindowShow() {
-                $('#chat-window').show().addClass('expanded no-border');
+                chatWindow.show().addClass('expanded no-border');
                 $("#chatInput").val('');
             }
 
@@ -409,102 +440,116 @@ $(document).ready(function () {
                 FB.getLoginStatus(function (response) {
 
                     if (response.status === 'connected') {
-                        console.log('Logged in.');
+                        console.log('Logged in FB.');
                         FB.api('/me', function (response) {
                             chatId = response.id;
                             accessToken = FB.getAuthResponse()['accessToken'];
                             chatInit(chatId, accessToken);
                         });
                     }
-                    else {
-                        FB.login(function () {
-                            FB.api('/me', function (response) {
-                                chatId = response.id;
-                                if (response.authResponse) {
-                                    accessToken = FB.getAuthResponse()['accessToken'];
-                                }
-                                chatInit(chatId, accessToken);
-                            });
-                        });
-                    }
+
                 });
 
-                gapi.load('client', initClient);
+                // gapi.load('client', initClient);
             });
 
+            function loginFB() {
 
-            function initClient() {
-                // Initialize the client with API key and People API, and initialize OAuth with an
-                // OAuth 2.0 client ID and scopes (space delimited string) to request access.
-                gapi.client.init({
-                    apiKey: 'AIzaSyBxI_qitnT0piafxGBgnQ_c6AfcRJeJ41E',
-                    discoveryDocs: ["https://people.googleapis.com/$discovery/rest?version=v1"],
-                    clientId: 'http://314496251274-l1emjpbm5p1o4l0ap7gh4f9k3fi4iupa.apps.googleusercontent.com/',
-                    scope: 'profile'
-                }).then(function () {
-                    // Listen for sign-in state changes.
-                    gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-
-                    // Handle the initial sign-in state.
-                    updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-                });
-            }
-
-            function updateSigninStatus(isSignedIn) {
-                // When signin status changes, this function is called.
-                // If the signin status is changed to signedIn, we make an API call.
-                if (isSignedIn) {
-                    makeApiCall();
+                if (response.status === 'connected') {
+                    console.log('Logged in FB.');
+                    FB.api('/me', function (response) {
+                        chatId = response.id;
+                        accessToken = FB.getAuthResponse()['accessToken'];
+                        chatInit(chatId, accessToken);
+                    });
+                } else {
+                    FB.login(function () {
+                        FB.api('/me', function (response) {
+                            chatId = response.id;
+                            if (response.authResponse) {
+                                accessToken = FB.getAuthResponse()['accessToken'];
+                            }
+                            chatInit(chatId, accessToken);
+                        });
+                    });
                 }
+
             }
 
-            function handleSignInClick(event) {
-                // Ideally the button should only show up after gapi.client.init finishes, so that this
-                // handler won't be called before OAuth is initialized.
-                gapi.auth2.getAuthInstance().signIn();
-            }
 
-            function handleSignOutClick(event) {
-                gapi.auth2.getAuthInstance().signOut();
-            }
-
-            function makeApiCall() {
-                // Make an API call to the People API, and print the user's given name.
-                gapi.client.people.people.get({
-                    'resourceName': 'people/me',
-                    'requestMask.includeField': 'person.names'
-                }).then(function(response) {
-                    console.log('Hello, ' + response.result.names[0].givenName);
-                }, function(reason) {
-                    console.log('Error: ' + reason.result.error.message);
-                });
-            }
-
+            // function initClient() {
+            //     // Initialize the client with API key and People API, and initialize OAuth with an
+            //     // OAuth 2.0 client ID and scopes (space delimited string) to request access.
+            //     gapi.client.init({
+            //         apiKey: 'AIzaSyBxI_qitnT0piafxGBgnQ_c6AfcRJeJ41E',
+            //         discoveryDocs: ["https://people.googleapis.com/$discovery/rest?version=v1"],
+            //         clientId: 'http://314496251274-l1emjpbm5p1o4l0ap7gh4f9k3fi4iupa.apps.googleusercontent.com/',
+            //         scope: 'profile'
+            //     }).then(function () {
+            //         // Listen for sign-in state changes.
+            //         gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+            //
+            //         // Handle the initial sign-in state.
+            //         updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+            //     });
+            // }
+            //
+            // function updateSigninStatus(isSignedIn) {
+            //     // When signin status changes, this function is called.
+            //     // If the signin status is changed to signedIn, we make an API call.
+            //     if (isSignedIn) {
+            //         makeApiCall();
+            //     }
+            // }
+            //
+            // function handleSignInClick(event) {
+            //     // Ideally the button should only show up after gapi.client.init finishes, so that this
+            //     // handler won't be called before OAuth is initialized.
+            //     gapi.auth2.getAuthInstance().signIn();
+            // }
+            //
+            // function handleSignOutClick(event) {
+            //     gapi.auth2.getAuthInstance().signOut();
+            // }
+            //
+            // function makeApiCall() {
+            //     // Make an API call to the People API, and print the user's given name.
+            //     gapi.client.people.people.get({
+            //         'resourceName': 'people/me',
+            //         'requestMask.includeField': 'person.names'
+            //     }).then(function(response) {
+            //         console.log('Hello, ' + response.result.names[0].givenName);
+            //     }, function(reason) {
+            //         console.log('Error: ' + reason.result.error.message);
+            //     });
+            // }
+            //
             function chatInit(id, token) {
 
-                // var data = {
-                //     id: id,
-                //     token: token
-                // };
-                // $.ajax({
-                //     type: "POST",
-                //     // type: "GET",            //mocked up version, should be post with data: !!!
-                //     url: 'https://010e8e35.ngrok.io/web/getStarted',
-                //     // url: 'https://pavlenko.botscrew.com/ailira/web/getStarted',
-                //     // url: './data/file.json',
-                //     contentType: "application/json; charset=utf-8",
-                //     dataType: "json",
-                //     data: JSON.stringify(data),
-                //
-                //     success: function (id) {
-                //         // setResponse(id);
-                //         // chatId = id;
-                //         connect();
-                //     },
-                //     error: function () {
-                //         console.log("Internal Server Error. Not possible to get chat id.");
-                //     }
-                // });
+                $($('.start-screen')[0]).fadeOut("fast", function () {
+                    var data = {
+                        id: id,
+                        token: token
+                    };
+                    $.ajax({
+                        // type: "POST",
+                        type: "GET",            //mocked up version, should be post with data: !!!
+                        // url: 'https://010e8e35.ngrok.io/web/getStarted',
+                        // url: 'https://pavlenko.botscrew.com/ailira/web/getStarted',
+                        url: './data/response.json',
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        data: JSON.stringify(data),
+
+                        success: function (id) {
+                            setResponse(id);
+                            // connect();
+                        },
+                        error: function () {
+                            console.log("Internal Server Error. Not possible to get chat id.");
+                        }
+                    });
+                });
 
             }
 

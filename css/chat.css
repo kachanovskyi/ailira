@@ -223,23 +223,79 @@
     display: flex;
     flex-direction: column-reverse;
     padding: 60px 0 60px 15px;
+    position: relative;
 }
 
 #chat-window .message-container::-webkit-scrollbar {
     display: block;
 }
 
-#chat-window .message-container .start-screen {
+#chat-window .start-screen {
     width: 100%;
-    height: calc(100% - 30px);
+    height: 100%;
     position: absolute;
-    top: 30px;
+    top: 0;
     left: 0;
-    background-color: #FFFFFF;
-    z-index: 1;
-    text-align: center;
-    /*display: none;*/
+    right: 0;
+    bottom: 0;
+    background: url("../images/chat-bg.png") no-repeat center #FFFFFF;
+    background-size: 100%;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
+
+#chat-window .start-screen .inner {
+    width: 60%;
+}
+
+#chat-window .start-screen .description {
+    color: #333333;
+    line-height: 140%;
+    margin-bottom: 40px;
+    font-weight: 500;
+}
+
+#chat-window .start-screen .login-btn {
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    background: #EB5757;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    cursor: pointer;
+}
+#chat-window .start-screen .login-btn.fb {
+    background: #3C66C4;
+    margin-bottom: 10px;
+}
+
+#chat-window .start-screen .login-btn .logo {
+    font-size: 24px;
+    font-weight: 500;
+    color: #FFFFFF;
+    padding: 6px 20px;
+    display: inline-block;
+    vertical-align: middle;
+    border-right: 1px solid rgba(256, 256, 256, .2);
+}
+#chat-window .start-screen .login-btn .text {
+    color: #FFFFFF;
+    padding: 0 20px;
+    line-height: 100%;
+    vertical-align: middle;
+}
+
+#chat-window .start-screen .login-btn.goo .logo {
+    padding: 6px 16px;
+}
+#chat-window .start-screen .login-btn.goo .text {
+    padding: 0 31px;
+}
+
+
 
 #chat-window .start-screen .start-img {
     width: 100%;
@@ -449,8 +505,6 @@
 #chat-window .message-container .scrolling-container.scrollable:not(.list) .arrow{
     display: flex;
 }
-
-
 
 #chat-window .message-container .scrolling-container .arrow {
     width:40px;
@@ -734,3 +788,14 @@ div#wave .dot:nth-child(3) {
     }
 }
 
+@media (max-width: 991px) {
+    #chat-window .start-screen .inner {
+        width: 100%;
+    }
+
+    #chat-window .start-screen .inner p {
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+    }
+}
