@@ -64,6 +64,7 @@ $(document).ready(function () {
                                 .append(
                                     $('<span class="text">').text('Login with Facebook')
                                 )
+                                .on("click", loginFB)
                         )
                         .append(
                             $('<a class="login-btn goo">')
