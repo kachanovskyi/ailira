@@ -461,47 +461,27 @@ $(document).ready(function () {
 
             function loginFB() {
 
-                FB.login(function () {
-                    console.log(1);
-                    FB.api('/me', function (response) {
-                        console.log(2);
-                        console.log(response);
-                        chatId = response.id;
-                        if (response.authResponse) {
-                            console.log(3);
-                            accessToken = FB.getAuthResponse()['accessToken'];
-                        }
-                        chatInit(chatId, accessToken);
-                    });
-                });
+                FB.getLoginStatus(function (response) {
 
-                // FB.getLoginStatus(function (response) {
-                //
-                //     if (response.status === 'connected') {
-                //         console.log('Logged in FB.');
-                //         FB.api('/me', function (response) {
-                //             chatId = response.id;
-                //             accessToken = FB.getAuthResponse()['accessToken'];
-                //             chatInit(chatId, accessToken);
-                //         });
-                //     } else {
-                //         console.log('loggin you into FB');
-                //         FB.login(function () {
-                //             console.log(1);
-                //             FB.api('/me', function (response) {
-                //                 console.log(2);
-                //                 console.log(response);
-                //                 chatId = response.id;
-                //                 if (response.authResponse) {
-                //                     console.log(3);
-                //                     accessToken = FB.getAuthResponse()['accessToken'];
-                //                 }
-                //                 chatInit(chatId, accessToken);
-                //             });
-                //         });
-                //     }
-                //
-                // })
+                    if (response.status === 'connected') {
+                        console.log('Already logged in FB.');
+                    } else {
+                        FB.login(function () {
+                            FB.api('/me', function (response) {
+                                chatId = response.id;
+                                if (response.authResponse) {
+                                    accessToken = FB.getAuthResponse()['accessToken'];
+                                }
+
+                                if(chatId && (chatId !== undefined)) {
+                                    console.log('You are successfully logged in FB.');
+                                    chatInit(chatId, accessToken);
+                                }
+                            });
+                        });
+                    }
+
+                })
             }
 
 
