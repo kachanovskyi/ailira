@@ -54,7 +54,8 @@ $(document).ready(function () {
                     $('<div class="inner">')
                         .append(
                             $('<p class="description">')
-                                .text("To continue chat to Ailira, please login using one of the social networks below")
+                                .text("To continue chat to Ailira, please login")
+                                // .text("To continue chat to Ailira, please login using one of the social networks below")
                         )
                         .append(
                             $('<a class="login-btn fb">')
@@ -66,15 +67,15 @@ $(document).ready(function () {
                                 )
                                 .on("click", loginFB)
                         )
-                        .append(
-                            $('<a class="login-btn goo">')
-                                .append(
-                                    $('<span class="logo">').text('G')
-                                )
-                                .append(
-                                    $('<span class="text">').text('Login with Google')
-                                )
-                        )
+                        // .append(
+                        //     $('<a class="login-btn goo">')
+                        //         .append(
+                        //             $('<span class="logo">').text('G')
+                        //         )
+                        //         .append(
+                        //             $('<span class="text">').text('Login with Google')
+                        //         )
+                        // )
                 )
                 .appendTo(chatWindow);
 
@@ -371,8 +372,8 @@ $(document).ready(function () {
             var stompClient = null;
 
             function connect() {
-                var socket = new SockJS('https://010e8e35.ngrok.io/web');
-                // var socket = new SockJS('https://pavlenko.botscrew.com/ailira/web');
+                // var socket = new SockJS('https://010e8e35.ngrok.io/web');
+                var socket = new SockJS('https://pavlenko.botscrew.com/ailira/web');
                 stompClient = Stomp.over(socket);
                 stompClient.connect({}, function (frame) {
                     // setConnected(true);
@@ -540,18 +541,18 @@ $(document).ready(function () {
                         token: token
                     };
                     $.ajax({
-                        // type: "POST",
-                        type: "GET",            //mocked up version, should be post with data: !!!
+                        type: "POST",
+                        // type: "GET",            //mocked up version, should be post with data: !!!
                         // url: 'https://010e8e35.ngrok.io/web/getStarted',
-                        // url: 'https://pavlenko.botscrew.com/ailira/web/getStarted',
-                        url: './data/response.json',
+                        url: 'https://pavlenko.botscrew.com/ailira/web/getStarted',
+                        // url: './data/response.json',
                         contentType: "application/json; charset=utf-8",
                         dataType: "json",
                         data: JSON.stringify(data),
 
                         success: function (id) {
-                            setResponse(id);
-                            // connect();
+                            // setResponse(id);
+                            connect();
                         },
                         error: function () {
                             console.log("Internal Server Error. Not possible to get chat id.");
