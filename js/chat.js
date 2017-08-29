@@ -152,6 +152,7 @@ $(document).ready(function () {
                 if ((val.message !== null) && (val.message !== undefined)) {
                     if (val.message.text !== undefined) {
                         message.text(val.message.text);
+                        sendName(val.message.text, "", true);
                     } else if (val.message.attachment !== undefined) {
                         message.text(val.message.attachment.payload.text);
                     }
@@ -393,7 +394,7 @@ $(document).ready(function () {
                 console.log("Disconnected");
             }
 
-            function sendName(message, param) {
+            function sendName(message, param, echo) {
 
                 var data = {
                     object: "page",
@@ -425,6 +426,10 @@ $(document).ready(function () {
                     data.entry[0].messaging[0].message = {
                         text: message
                     }
+                }
+
+                if(echo) {
+                    data.entry[0].messaging[0].message.is_echo = true;
                 }
 
                 stompClient.send("/app/hello", {}, JSON.stringify(data));
