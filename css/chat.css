@@ -194,7 +194,7 @@
     /*color: #4b5053;*/
 /*}*/
 
-#chatInput {
+.chatInput {
     display: inline-block;
     border: none;
     vertical-align: middle;
@@ -202,14 +202,68 @@
     color: rgba(0, 0, 0, .5);
     height: 50px;
     background-color: transparent;
-    padding: 0 0 0 30px;
+    padding: 0 0 0 10px;
 }
 
-#chatInput:focus {
+.hr-text {
+    line-height: 1em;
+    position: relative;
+    outline: 0;
+    border: 0;
+    color: black;
+    text-align: center;
+    height: 1.5em;
+    opacity: 0.5;
+}
+.hr-text:before {
+    content: "";
+    background: -webkit-linear-gradient(left, transparent, #818078, transparent);
+    background: linear-gradient(to right, transparent, #818078, transparent);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+}
+.hr-text:after {
+    content: attr(data-content);
+    position: relative;
+    display: inline-block;
+    color: black;
+    padding: 0 0.5em;
+    line-height: 1.5em;
+    color: #818078;
+    background-color: #fcfcfa;
+}
+
+.persistant-menu{
+    background: white;
+    position: absolute;
+    top : -170px;
+    left: 20px;
+    border: 0;
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .1), 0 1px 10px rgba(0, 0, 0, .35);
+}
+
+.link{
+    color: #0e90d2;
+    cursor: pointer;
+}
+.menu-item{
+    text-align: left;
+    list-style: none;
+    border-top: 1px solid #dddfe2;
+    font-size: 14px;
+    display: block;
+    padding: 10px 10px 10px 30px;
+    width: 200px;
+}
+.chatInput:focus {
     outline: none;
 }
 
-#chatInput.black-placeholder::-webkit-input-placeholder {
+.chatInput.black-placeholder::-webkit-input-placeholder {
     color: #dadada !important;
 }
 
@@ -222,7 +276,7 @@
     font-size: 16px;
     display: flex;
     flex-direction: column-reverse;
-    padding: 60px 0 60px 15px;
+    padding: 60px 0 70px 15px;
     position: relative;
 }
 
@@ -361,6 +415,10 @@
     float: left;
     clear: both;
     width: 100%;
+}
+
+.message-row{
+    margin-bottom: 10px;
 }
 
 #chat-window .message-container .chat-message.bot {
@@ -549,12 +607,12 @@
 
 #chat-window .message-container .scrolling-container ul li {
     padding:0 30px;
-    background: #2F80ED;
+    background: #ffffff;
     /*box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);*/
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgb(58, 135, 240);
     border-radius: 100px;
     font-size: 16px;
-    color: #FFFFFF;
+    color: #3a87f0;
     margin-right: 10px;
     display: flex;
     align-items: center;
@@ -572,6 +630,7 @@
     background: #FFFFFF;
     padding: 0;
     flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 #chat-window .message-container .scrolling-container.list ul .generic {
@@ -619,7 +678,7 @@
     margin-bottom: 0;
     display: block;
     float: left;
-    word-break:break-all;
+    word-wrap: break-word;
     overflow: visible;
     white-space: normal;
 }

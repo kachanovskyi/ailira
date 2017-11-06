@@ -1,4 +1,4 @@
-//© All rights reserved. BotsCrew 2017
+//� All rights reserved. BotsCrew 2017
 $(document).ready(function () {
 
     window.fbAsyncInit = function () {
@@ -46,8 +46,10 @@ $(document).ready(function () {
                 .css('width', '100%')
                 .css('height', '100%')
                 .css('background-size', '100%')
+                .click(function(){
+                    $(".persistant-menu").hide();
+                })
                 .appendTo(chatWindow);
-
 
             $('<div class="start-screen">')
                 .append(
@@ -55,8 +57,79 @@ $(document).ready(function () {
                         .append(
                             $('<p class="description">')
                                 .text("To continue chat to Ailira, please login")
-                                // .text("To continue chat to Ailira, please login using one of the social networks below")
+
+                            // .text("To continue chat to Ailira, please login using one of the social networks below")
                         )
+
+                        .append(
+                            $('<input type="text" placeholder="Name" >')
+                                .attr('id', 'inputName')
+                                .addClass('black-placeholder chatInput')
+                                .css('width', '250px')
+                                .css('border', '1px solid #ccc')
+                                .css('border-radius', '6px')
+                                .css('background', 'white')
+                                .css('margin-bottom', '10px')
+                                .css('box-shadow', '3px 3px 11px -3px')
+                                .css('height', '44px')
+                        )
+                        .append('<br>')
+                        .append(
+                            $('<input type="text" placeholder="Email" >')
+                                .attr('id', 'inputEmail')
+                                .addClass('black-placeholder chatInput')
+                                .css('width', '250px')
+                                .css('border', '1px solid #ccc')
+                                .css('border-radius', '6px')
+                                .css('margin-bottom', '10px')
+                                .css('box-shadow', '3px 3px 11px -3px')
+                                .css('background', 'white')
+                                .css('height', '44px')
+                        )
+                        .append('<br>')
+                        .append(
+                            $('<a class="login-btn fb">')
+                                .css('padding', '10px')
+                                .css('background', '#3a87f0')
+                                .css('width', '250px')
+                                .append(
+                                    $('<span class="text">').text('Login')
+                                )
+                                .click(function () {
+                                    var name = $('#inputName').val();
+                                    var email = $('#inputEmail').val();
+                                    if(name!='' && email!='') {
+                                        $($('.start-screen')[0]).fadeOut("fast", function () {
+                                            var data = {
+                                                name: name,
+                                                email: email
+                                            };
+                                            console.log(data);
+                                            $.ajax({
+                                                type: "POST",
+                                                //url: 'https://0bec2049.ngrok.io/web/getStarted',
+                                                url: 'https://pavlenko.botscrew.com/web/getStarted',
+                                                contentType: "application/json; charset=utf-8",
+                                                dataType: "json",
+                                                data: JSON.stringify(data),
+
+                                                success: function (id) {
+                                                    chatId = id;
+                                                    connect();
+                                                },
+                                                error: function () {
+                                                    console.log("Internal Server Error. Not possible to get chat id.");
+                                                }
+                                            });
+                                        })
+                                    }
+                                })
+
+                        )
+
+                        .append('<hr class="hr-text" data-content="OR">')
+
+
                         .append(
                             $('<a class="login-btn fb">')
                                 .append(
@@ -65,36 +138,64 @@ $(document).ready(function () {
                                 .append(
                                     $('<span class="text">').text('Login with Facebook')
                                 )
+                                .css('width', '250px')
                                 .on("click", loginFB)
+
+
                         )
-                        // .append(
-                        //     $('<a class="login-btn goo">')
-                        //         .append(
-                        //             $('<span class="logo">').text('G')
-                        //         )
-                        //         .append(
-                        //             $('<span class="text">').text('Login with Google')
-                        //         )
-                        // )
+
+                        /*.append(
+                            $('<a class="login-btn goo">')
+                                .append(
+                                    $('<span class="logo">').text('G')
+                                )
+                                .append(
+                                    $('<span class="text">').text('Login with Google')
+                                )
+                        )*/
                 )
                 .appendTo(chatWindow);
 
 
+            var menu = $('<div>  <ul style="margin: 0; padding: 0">  <li class="menu-item" style="font-weight: bold; cursor: default; text-align: center;  padding: 10px 10px 10px 10px;" >Menu </li><li class="menu-item link" id="WILLS">Wills</li><li class="menu-item link" id="BUSINESS-STRUCTURE">Business structure</li><li class="menu-item link" id="LOGOUT">LOG OUT</li></ul></div>').addClass('persistant-menu');
             $('<div class="chat-bottom">')
                 .css('height', '58px')
+                .append(menu)
                 .append(
                     $('<div class="input-container">')
                         .append(
+                            $('<span></span>')
+                                .css('background-image', 'url(images/menu.png)')
+                                .css('display', 'inline-block')
+                                .css('height', '32px')
+                                .css('width', '32px')
+                                .css('background-repeat', 'no-repeat')
+                                .css('cursor', 'pointer')
+                                .css('margin-top', '15px')
+                                .attr('id', 'menu-button')
+                                .css('vertical-align', 'middle')
+                                .click(function(){
+                                    if($(".persistant-menu").css('display') === 'none')
+                                        $(".persistant-menu").show();
+                                    else
+                                        $(".persistant-menu").hide();
+                                })
+
+                        )
+                        .append(
                             $('<input type="text" placeholder="Type your message ...">')
                                 .attr('id', 'chatInput')
-                                .addClass('black-placeholder')
+                                .addClass('black-placeholder chatInput')
                                 .keypress(function (event) {
                                     if (event.which === 13) {
                                         event.preventDefault();
                                         send();
                                     }
                                 })
-                                .css('width', 'calc(100% - 88px)')
+                                .css('width', 'calc(100% - 88px - 70px)')
+                                .click(function(){
+                                        $(".persistant-menu").hide();
+                                })
                         )
                         .append(
                             $('<a class="send-message">').text('Send')
@@ -122,7 +223,13 @@ $(document).ready(function () {
                 $("#chatInput").val('');
             }
 
-            function setResponse(val) {
+            $(".persistant-menu").hide();
+
+            $('.link').click(function() {
+                $(".persistant-menu").hide();
+            });
+
+            function setResponse(val, callback) {
 
                 var typing = $('.message-container').find($('#wave'));
 
@@ -174,26 +281,45 @@ $(document).ready(function () {
                                 .addClass('quick')
                                 .append(
                                     $('<span class="arrow">')
+                                        .attr('id', 'leftArrow')
                                         .text('<')
                                         .click(
                                             function () {
                                                 var navwidth = scrCont.find('ul');
                                                 navwidth.scrollLeft(navwidth.scrollLeft() - 200);
+                                                if(navwidth.scrollLeft()===0){
+                                                    $('#leftArrow').hide();
+                                                }
+                                                $('#rightArrow').show();
+                                                if($('.scrolling-container').width() > $('#scroll').width()){
+                                                    $('#leftArrow').hide();
+                                                    $('#rightArrow').hide();
+                                                }
                                             }
                                         )
                                 )
                                 .append(
                                     $('<span class="arrow">')
+                                        .attr('id', 'rightArrow')
                                         .text('>')
                                         .click(
                                             function () {
                                                 var navwidth = scrCont.find('ul');
                                                 navwidth.scrollLeft(navwidth.scrollLeft() + 200);
+                                                if(navwidth.scrollLeft()+navwidth.width()===navwidth.get(0).scrollWidth){
+                                                    $('#rightArrow').hide();
+                                                }
+                                                $('#leftArrow').show();
+                                                if($('.scrolling-container').width() > $('#scroll').width()){
+                                                    $('#leftArrow').hide();
+                                                    $('#rightArrow').hide();
+                                                }
                                             }
                                         )
                                 )
                                 .append(
                                     $('<ul>')
+                                        .attr('id', 'scroll')
                                 )
                                 .appendTo(container);
 
@@ -202,21 +328,34 @@ $(document).ready(function () {
                                     .text(item.title)
                                     .attr('payload', item.payload)
                                     .click(function () {
-                                        send("btn", $(this))
+                                        send("btn", $(this));
+                                        $(this).closest('.scrolling-container.quick').remove();
                                     })
                                     .appendTo(scrCont.find('ul'));
                             });
 
                             scrCont.find('ul').find('li').each(function () {
-                                scrContWidth += parseInt($(this).css('width'), 10) + 10;
+                                scrContWidth += $(this).width() + 20;
                             });
+
+                            console.log(scrContWidth);
 
                             if (scrContWidth > parseInt(scrCont.css('width'), 10)) {
                                 scrCont.addClass('scrollable');
-                                console.log(scrContWidth > parseInt(scrCont.css('width'), 10));
-                                console.log(parseInt(scrCont.css('width'), 10));
-
                             }
+
+                            if($('.scrolling-container').width() > $('#scroll').width()){
+                                $('#leftArrow').hide();
+                                $('#rightArrow').hide();
+                            } else {
+                                $('#leftArrow').show();
+                                $('#rightArrow').show();
+                            }
+
+                            if($('.quick').find('ul').scrollLeft()===0){
+                                $('#leftArrow').hide();
+                            }
+
                         }
 
                         if (val.message.attachment && val.message.attachment.payload.elements) {
@@ -313,16 +452,14 @@ $(document).ready(function () {
                                 }
 
                                 generic.appendTo(scrCont.find('ul'));
+
+                                // console.log(generic.width());
+                                // scrContWidth = $('.generic-info').parent().parent().css('width');
+                                // console.log(scrContWidth);
+
                             });
 
-                            scrCont.find('ul').find('li').each(function () {
-                                scrContWidth += parseInt($(this).css('width'), 10) + 10;
-                            });
-
-                            if (scrContWidth > parseInt(scrCont.css('width'), 10)) {
-                                scrCont.addClass('scrollable');
-                            }
-                            setGenericWidth();
+                            setGenericWidth(scrCont);
 
                         }
 
@@ -374,7 +511,7 @@ $(document).ready(function () {
 
             function connect() {
                 // var socket = new SockJS('https://010e8e35.ngrok.io/web');
-                var socket = new SockJS('https://pavlenko.botscrew.com/ailira/web');
+                var socket = new SockJS('https://pavlenko.botscrew.com/web');
                 stompClient = Stomp.over(socket);
                 stompClient.connect({}, function (frame) {
                     // setConnected(true);
@@ -384,6 +521,9 @@ $(document).ready(function () {
                         showGreeting(JSON.parse(greeting.body));
                     });
                     sendName("hi");
+                });
+                $('html, body').animate({
+                    scrollTop: 300
                 });
             }
 
@@ -436,14 +576,13 @@ $(document).ready(function () {
             }
 
             function showGreeting(message) {
-                setResponse(message);
+                setResponse(message, setGenericWidth);
             }
 
             var chatId = null,
                 accessToken = null;
 
             $(window).load(function () {
-                console.log('window loaded');
 
                 FB.getLoginStatus(function (response) {
                     console.log(response);
@@ -471,6 +610,11 @@ $(document).ready(function () {
 
                     if (response.status === 'connected') {
                         console.log('Already logged in FB.');
+			FB.api('/me', function (response) {
+                            chatId = response.id;
+                            accessToken = FB.getAuthResponse()['accessToken'];
+                            chatInit(chatId, accessToken);
+                        });
                     } else {
                         FB.login(function () {
                             FB.api('/me', function (response) {
@@ -486,10 +630,8 @@ $(document).ready(function () {
                             });
                         });
                     }
-
                 })
             }
-
 
             // function initClient() {
             //     // Initialize the client with API key and People API, and initialize OAuth with an
@@ -539,7 +681,6 @@ $(document).ready(function () {
             // }
             //
             function chatInit(id, token) {
-
                 $($('.start-screen')[0]).fadeOut("fast", function () {
                     var data = {
                         id: id,
@@ -549,8 +690,8 @@ $(document).ready(function () {
                         type: "POST",
                         // type: "GET",            //mocked up version, should be post with data: !!!
                         // url: 'https://010e8e35.ngrok.io/web/getStarted',
-                        url: 'https://pavlenko.botscrew.com/ailira/web/getStarted',
-                        // url: './data/response.json',
+                        url: 'https://pavlenko.botscrew.com/web/getStarted',
+                        // url: './data/response3.json',
                         contentType: "application/json; charset=utf-8",
                         dataType: "json",
                         data: JSON.stringify(data),
@@ -561,13 +702,37 @@ $(document).ready(function () {
                         },
                         error: function () {
                             console.log("Internal Server Error. Not possible to get chat id.");
+				            loginFB();
                         }
                     });
                 });
-
             }
 
+            $('#WILLS').click(function() {
+                send("menu", "Wills");
+            });
+
+            $('#BUSINESS-STRUCTURE').click(function() {
+                send("menu", "Business structure");
+            });
+
+            $('#LOGOUT').click(function() {
+                FB.getLoginStatus(function (response) {
+                    if (response.status === 'connected') {
+                        FB.logout(function(response) {
+                            location.reload();
+                        });
+                    } else {
+                        location.reload();
+                    }
+                    })
+            });
+
             function send(param, elem) {
+
+                $('.scrolling-container.quick').remove();
+
+                $(".persistant-menu").hide();
 
                 if (!$('.send-message').is('.disabled')) {
 
@@ -575,6 +740,10 @@ $(document).ready(function () {
 
                     if (param === "btn") {
                         text = elem.text();
+                    }
+
+                    if(param === "menu"){
+                        text = elem;
                     }
 
                     if (text.length && text.trim()) {
@@ -643,37 +812,68 @@ $(document).ready(function () {
                     }, 300);
             }
 
-            function setGenericWidth() {
+            var resizeTimer;
 
-                genericScrollValue = parseInt($('.chat-container').css('width'), 10);
-                var genInfo = $('.generic-info');
-                if (genInfo && !genInfo.parent().parent().parent().hasClass('list')) {
-                    var scrContWidth = genInfo.parent().parent().css('width');
-                    var scrCont = genInfo.parent().parent();
-                    scrCont.find('.generic-info').each(function () {
-                        $(this).css('width', scrContWidth);
-                        var genImg = $(this).parent().find('.generic-img');
+            function setGenericWidth(scrCont) {
 
-                        if (genImg) {
-                            var genImgWidth = parseInt($(this).parent().find('.generic-img').find('.inner').css('width'), 10);
-                            genImg.find('.inner').css('height', genImgWidth / 2);
-                        }
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+
+                    genericScrollValue = parseInt($('.chat-container').css('width'), 10);
+                    var genInfo = $('.generic-info');
+                    if (genInfo && !genInfo.parent().parent().parent().hasClass('list')) {
+                        // var scrContWidth = genInfo.parent().parent().css('width');
+                        var scrContWidth = parseInt($('#messageContainer .message-outer.bot').css('width'), 10) - 3;
+                        var scrCont = genInfo.parent().parent();
+                        scrCont.find('.generic-info').each(function () {
+                            $(this).css('width', scrContWidth);
+                            var genImg = $(this).parent().find('.generic-img');
+
+                            if (genImg) {
+                                var genImgWidth = parseInt($(this).parent().find('.generic-img').find('.inner').css('width'), 10);
+                                genImg.find('.inner').css('height', genImgWidth / 2);
+                            }
+                        });
+
+                        scrCont.parent().find('.arrow').first().click(
+                            function () {
+                                var navwidth = scrCont.find('ul');
+                                navwidth.scrollLeft(navwidth.scrollLeft() - parseInt(scrContWidth, 10));
+                            }
+                        );
+                        scrCont.parent().find('.arrow').last().click(
+                            function () {
+                                var navwidth = scrCont.find('ul');
+                                navwidth.scrollLeft(navwidth.scrollLeft() + parseInt(scrContWidth, 10));
+                            }
+                        );
+                    }
+
+                    scrCont.find('.generic').each(function () {
+                        scrContWidth += parseInt($(this).css('width'), 10) + 20;
                     });
 
-                    scrCont.parent().find('.arrow').first().click(
-                        function () {
-                            var navwidth = scrCont.find('ul');
-                            navwidth.scrollLeft(navwidth.scrollLeft() - parseInt(scrContWidth, 10));
-                        }
-                    );
-                    scrCont.parent().find('.arrow').last().click(
-                        function () {
-                            var navwidth = scrCont.find('ul');
-                            navwidth.scrollLeft(navwidth.scrollLeft() + parseInt(scrContWidth, 10));
-                        }
-                    );
+                    if (scrContWidth > parseInt( $(scrCont[0]).css('width'), 10 )) {
+                        $(scrCont[0]).parent().addClass('scrollable');
 
-                }
+                        scrContWidth = parseInt($('#messageContainer .message-outer.bot').css('width'), 10) - 44 - 40;
+
+                        console.log(scrContWidth);
+
+                        $(scrCont[0]).find('.generic-info').each(function () {
+                            console.log($(this));
+                            $(this).css('width', scrContWidth);
+                            var genImg = $(this).parent().find('.generic-img');
+
+                            if (genImg) {
+                                var genImgWidth = parseInt($(this).parent().find('.generic-img').find('.inner').css('width'), 10);
+                                genImg.find('.inner').css('height', genImgWidth / 2);
+                            }
+                        });
+                    }
+
+                }, 250);
+
             }
 
             // $(window).unload(function () {
@@ -713,4 +913,17 @@ $(document).ready(function () {
         init();
     })();
 
+    $( window ).resize(function() {
+        if($('.scrolling-container').width() > $('#scroll').width()){
+            $('#leftArrow').hide();
+            $('#rightArrow').hide();
+        } else {
+            $('#leftArrow').show();
+            $('#rightArrow').show();
+        }
+        if($('.quick').find('ul').scrollLeft()===0){
+            $('#leftArrow').hide();
+        }
+
+    });
 });
