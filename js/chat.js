@@ -44,7 +44,8 @@ $(document).ready(function () {
             var messageContainer = $('<div class="message-container">')
                 .attr('id', 'messageContainer')
                 .css('width', '100%')
-                .css('height', '100%')
+                .css('height', 'calc(100% - 64px)')
+                // .css('height', '100%')
                 .css('background-size', '100%')
                 .click(function(){
                     $(".persistant-menu").hide();
@@ -208,13 +209,13 @@ $(document).ready(function () {
                 .appendTo(chatWindow);
 
 
-            $('<div class="message-outer bot">')
-                .css('visibility', 'hidden')
-                .css('margin-bottom', '0')
-                .append(
-                    $('<div class="chat-message bot purple">').text("I'm hidden:)")
-                )
-                .prependTo(chatWindow.find('.message-container'));
+            // $('<div class="message-outer bot">')
+            //     .css('visibility', 'hidden')
+            //     .css('margin-bottom', '0')
+            //     .append(
+            //         $('<div class="chat-message bot purple">').text("I'm hidden:)")
+            //     )
+            //     .prependTo(chatWindow.find('.message-container'));
 
             chatWindowShow();
 
@@ -229,7 +230,7 @@ $(document).ready(function () {
                 $(".persistant-menu").hide();
             });
 
-            function setResponse(val, callback) {
+            function setResponse(val) {
 
                 var typing = $('.message-container').find($('#wave'));
 
@@ -263,7 +264,6 @@ $(document).ready(function () {
                     } else if (val.message.attachment !== undefined) {
                         message.text(val.message.attachment.payload.text);
                     }
-
 
                     setTimeout(function () {
 
@@ -499,10 +499,12 @@ $(document).ready(function () {
                             });
                         }
 
+                        chatScrollBottom();
+
                     }, 333);
                 }
 
-                container.prependTo($('#chat-window').find('.message-container'));
+                container.appendTo($('#chat-window').find('.message-container'));
                 chatScrollBottom();
 
             }
@@ -755,17 +757,26 @@ $(document).ready(function () {
                             sendName(text);
                         }
 
-                        var message = $('<div class="chat-message user">');
-
                         $('<div class="message-outer user">')
-                            .prependTo($('#chat-window')
+                            .append(
+                                $('<div class="chat-message user">').text(text)
+                            )
+                            // .prependTo($('#chat-window')
+                            .appendTo($('#chat-window')
                                 .find('.message-container'));
 
-                        message
-                            .text(text)
-                            .appendTo(
-                                $('#chat-window').find('.message-container').find('.message-outer.user')[0]
-                            );
+                        // var message = $('<div class="chat-message user">');
+                        //
+                        // $('<div class="message-outer user">')
+                        //     .appendTo($('#chat-window')
+                        //     // .prependTo($('#chat-window')
+                        //         .find('.message-container'));
+                        //
+                        // message
+                        //     .text(text)
+                        //     .appendTo(
+                        //         $('#chat-window').find('.message-container').find('.message-outer.user')[0]
+                        //     );
 
                     } else {
                         $("#chatInput").val('').focus();
@@ -778,6 +789,7 @@ $(document).ready(function () {
 
             function chatScrollBottom() {
                 $(".message-container").animate({scrollTop: $('.message-container').prop("scrollHeight")}, 0);
+                // $(".message-container").animate({scrollTop: $(this).height()}, 0);
             }
 
             function getVisible($el, param) {
@@ -816,6 +828,9 @@ $(document).ready(function () {
 
             function setGenericWidth(scrCont) {
 
+                // console.log(scrCont);
+                // console.log(  );
+
                 clearTimeout(resizeTimer);
                 resizeTimer = setTimeout(function() {
 
@@ -824,7 +839,12 @@ $(document).ready(function () {
                     if (genInfo && !genInfo.parent().parent().parent().hasClass('list')) {
                         // var scrContWidth = genInfo.parent().parent().css('width');
                         var scrContWidth = parseInt($('#messageContainer .message-outer.bot').css('width'), 10) - 3;
-                        var scrCont = genInfo.parent().parent();
+
+                        if(scrCont === undefined) {
+                            scrCont = $(".scrolling-container:not(.quick)").last();
+                        }
+
+                        // var scrCont = genInfo.parent().parent();
                         scrCont.find('.generic-info').each(function () {
                             $(this).css('width', scrContWidth);
                             var genImg = $(this).parent().find('.generic-img');
@@ -853,12 +873,15 @@ $(document).ready(function () {
                         scrContWidth += parseInt($(this).css('width'), 10) + 20;
                     });
 
+                    // console.log(scrContWidth, 'scrContWidth');
+                    // console.log($(scrCont[0]).css('width'), 'scrWidth');
+
                     if (scrContWidth > parseInt( $(scrCont[0]).css('width'), 10 )) {
-                        $(scrCont[0]).parent().addClass('scrollable');
+                        $(scrCont[0]).addClass('scrollable');
 
                         scrContWidth = parseInt($('#messageContainer .message-outer.bot').css('width'), 10) - 44 - 40;
 
-                        console.log(scrContWidth);
+                        // console.log(scrContWidth);
 
                         $(scrCont[0]).find('.generic-info').each(function () {
                             console.log($(this));
@@ -871,6 +894,8 @@ $(document).ready(function () {
                             }
                         });
                     }
+
+                    chatScrollBottom();
 
                 }, 250);
 

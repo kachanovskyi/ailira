@@ -2,29 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc49411e-1ce6-49ec-9725-781dc571a8e4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/about.html" afterPath="$PROJECT_DIR$/about.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/become-partners.html" afterPath="$PROJECT_DIR$/become-partners.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog.html" afterPath="$PROJECT_DIR$/blog.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/blog-example.html" afterPath="$PROJECT_DIR$/blog/blog-example.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contact.html" afterPath="$PROJECT_DIR$/contact.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/chat.css" afterPath="$PROJECT_DIR$/css/chat.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/chat.js" afterPath="$PROJECT_DIR$/js/chat.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/advanced-business-structures.html" afterPath="$PROJECT_DIR$/law-library/advanced-business-structures.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/domestic-violence.html" afterPath="$PROJECT_DIR$/law-library/domestic-violence.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/company-owned-by-multiple-discretionary-trusts.html" afterPath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/company-owned-by-multiple-discretionary-trusts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/partnership-of-discretionary-trusts.html" afterPath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/partnership-of-discretionary-trusts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/partnership-of-individuals.html" afterPath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/partnership-of-individuals.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/unit-trust.html" afterPath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/unit-trust.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/single-founder-business-structures/company-owned-by-one-discretionary-trust.html" afterPath="$PROJECT_DIR$/law-library/single-founder-business-structures/company-owned-by-one-discretionary-trust.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/single-founder-business-structures/discretionary-trust-single-founder-business-model.html" afterPath="$PROJECT_DIR$/law-library/single-founder-business-structures/discretionary-trust-single-founder-business-model.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/single-founder-business-structures/hobby.html" afterPath="$PROJECT_DIR$/law-library/single-founder-business-structures/hobby.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/single-founder-business-structures/sole-trader.html" afterPath="$PROJECT_DIR$/law-library/single-founder-business-structures/sole-trader.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/wills-and-estate-planning/estate-planning-faq.html" afterPath="$PROJECT_DIR$/law-library/wills-and-estate-planning/estate-planning-faq.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/wills-and-estate-planning/estate-planning-glossary.html" afterPath="$PROJECT_DIR$/law-library/wills-and-estate-planning/estate-planning-glossary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newsroom.html" afterPath="$PROJECT_DIR$/newsroom.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user-guide.html" afterPath="$PROJECT_DIR$/user-guide.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -58,14 +37,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chat.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chat.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/chat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="505">
-              <caret line="858" column="116" lean-forward="false" selection-start-line="858" selection-start-column="116" selection-end-line="858" selection-end-column="116" />
+            <state relative-caret-position="249">
+              <caret line="46" column="46" lean-forward="false" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
               <folding>
-                <marker date="1509982378000" expanded="true" signature="6940:6961" ph="..." />
-                <marker date="1509982378000" expanded="true" signature="6994:7080" ph="..." />
+                <marker date="1510016206000" expanded="true" signature="6995:7016" ph="..." />
+                <marker date="1510016206000" expanded="true" signature="7049:7135" ph="..." />
               </folding>
             </state>
           </provider>
@@ -81,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chat.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="chat.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/chat.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="562" column="61" lean-forward="false" selection-start-line="562" selection-start-column="61" selection-end-line="562" selection-end-column="61" />
+            <state relative-caret-position="444">
+              <caret line="282" column="10" lean-forward="false" selection-start-line="282" selection-start-column="10" selection-end-line="282" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -125,17 +104,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>login-btn</find>
-      <find>load</find>
-      <find>.load</find>
-      <find>goo</find>
-      <find>showGreeting</find>
-      <find>connect(</find>
-      <find>send</find>
-      <find>13</find>
-      <find>become-partners</find>
-      <find>&lt;body</find>
-      <find>body&gt;</find>
       <find>head</find>
       <find>head&gt;</find>
       <find>/aili</find>
@@ -152,9 +120,20 @@
       <find>connect</find>
       <find>FB</find>
       <find>chatInit</find>
-      <find>setGenericWidth</find>
       <find>setResponse</find>
       <find>scrollable</find>
+      <find>setGenericWidth</find>
+      <find>setRes</find>
+      <find>isola</find>
+      <find>scrollbar</find>
+      <find>setRe</find>
+      <find>message-container</find>
+      <find>hidden</find>
+      <find>message-co</find>
+      <find>prepe</find>
+      <find>send</find>
+      <find>chatScro</find>
+      <find>px</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -215,12 +194,12 @@
         <option value="$PROJECT_DIR$/webviews/index.html" />
         <option value="$PROJECT_DIR$/webviews/index.js" />
         <option value="$PROJECT_DIR$/webviews/styles.css" />
-        <option value="$PROJECT_DIR$/css/chat.css" />
         <option value="$PROJECT_DIR$/newsroom.html" />
         <option value="$PROJECT_DIR$/webviews/executors.html" />
         <option value="$PROJECT_DIR$/webviews/executors.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/chat.js" />
+        <option value="$PROJECT_DIR$/css/chat.css" />
       </list>
     </option>
   </component>
@@ -447,12 +426,12 @@
       <workItem from="1508937740491" duration="1175000" />
       <workItem from="1509545837247" duration="312000" />
       <workItem from="1509971148395" duration="244000" />
-      <workItem from="1509974172653" duration="5214000" />
+      <workItem from="1509974172653" duration="10712000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="229313000" />
+    <option name="totallyTimeSpent" value="234811000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -828,22 +807,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/chat.css">
+    <entry file="file://$PROJECT_DIR$/js/chat.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="562" column="61" lean-forward="false" selection-start-line="562" selection-start-column="61" selection-end-line="562" selection-end-column="61" />
-          <folding />
+        <state relative-caret-position="249">
+          <caret line="46" column="46" lean-forward="false" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
+          <folding>
+            <marker date="1510016206000" expanded="true" signature="6995:7016" ph="..." />
+            <marker date="1510016206000" expanded="true" signature="7049:7135" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/chat.js">
+    <entry file="file://$PROJECT_DIR$/css/chat.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="858" column="116" lean-forward="false" selection-start-line="858" selection-start-column="116" selection-end-line="858" selection-end-column="116" />
-          <folding>
-            <marker date="1509982378000" expanded="true" signature="6940:6961" ph="..." />
-            <marker date="1509982378000" expanded="true" signature="6994:7080" ph="..." />
-          </folding>
+        <state relative-caret-position="444">
+          <caret line="282" column="10" lean-forward="false" selection-start-line="282" selection-start-column="10" selection-end-line="282" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
