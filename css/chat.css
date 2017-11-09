@@ -721,8 +721,52 @@
     cursor: pointer;
 }
 
+.modal-header .close {
+    margin-top: 2px;
+}
 
+.modal-content {
+    text-align: left;
+}
+.modal-content .learn-more-btn {
+    margin-top: 0;
+    padding: 10px;
+}
 
+#fileInfo {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+/*.inputfile {*/
+    /*width: 0.1px;*/
+    /*height: 0.1px;*/
+    /*opacity: 0;*/
+    /*overflow: hidden;*/
+    /*position: absolute;*/
+    /*z-index: -1;*/
+/*}*/
+
+/*.inputfile + label {*/
+    /*font-size: 1.25em;*/
+    /*font-weight: 700;*/
+    /*color: white;*/
+    /*background-color: black;*/
+    /*display: inline-block;*/
+    /*cursor: pointer;*/
+/*}*/
+
+/*.inputfile:focus + label,*/
+/*.inputfile + label:hover {*/
+    /*background-color: red;*/
+/*}*/
+
+/*.inputfile:focus + label {*/
+    /*outline: 1px dotted #000;*/
+    /*outline: -webkit-focus-ring-color auto 5px;*/
+/*}*/
 
 /*#chat-window .message-container .quick-reply-container .inner {*/
     /*height: 100%;*/

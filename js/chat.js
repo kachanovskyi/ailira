@@ -47,7 +47,7 @@ $(document).ready(function () {
                 .css('height', 'calc(100% - 64px)')
                 // .css('height', '100%')
                 .css('background-size', '100%')
-                .click(function(){
+                .click(function () {
                     $(".persistant-menu").hide();
                 })
                 .appendTo(chatWindow);
@@ -99,7 +99,7 @@ $(document).ready(function () {
                                 .click(function () {
                                     var name = $('#inputName').val();
                                     var email = $('#inputEmail').val();
-                                    if(name!='' && email!='') {
+                                    if (name != '' && email != '') {
                                         $($('.start-screen')[0]).fadeOut("fast", function () {
                                             var data = {
                                                 name: name,
@@ -125,7 +125,6 @@ $(document).ready(function () {
                                         })
                                     }
                                 })
-
                         )
 
                         .append('<hr class="hr-text" data-content="OR">')
@@ -141,21 +140,73 @@ $(document).ready(function () {
                                 )
                                 .css('width', '250px')
                                 .on("click", loginFB)
-
-
                         )
 
-                        /*.append(
-                            $('<a class="login-btn goo">')
-                                .append(
-                                    $('<span class="logo">').text('G')
-                                )
-                                .append(
-                                    $('<span class="text">').text('Login with Google')
-                                )
-                        )*/
+                    /*.append(
+                        $('<a class="login-btn goo">')
+                            .append(
+                                $('<span class="logo">').text('G')
+                            )
+                            .append(
+                                $('<span class="text">').text('Login with Google')
+                            )
+                    )*/
                 )
                 .appendTo(chatWindow);
+
+            var submitFileForm = function (url) {
+                console.log("submit event");
+                var fd = new FormData(document.getElementById("fileinfo"));
+                fd.append("label", "WEBUPLOAD");
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    data: fd,
+                    processData: false,  // tell jQuery not to process the data
+                    contentType: false   // tell jQuery not to set contentType
+                }).done(function (data) {
+                    console.log("PHP Output:");
+                    console.log(data);
+                });
+                return false;
+            };
+
+            if ($('#upload-modal').length < 1) {
+
+                $('<div class="modal fade" id="upload-modal" role="dialog">')
+                    .append(
+                        $('<div class="modal-dialog">').append(
+                            $('<div class="modal-content">')
+                                .append(
+                                    $('<div class="modal-header">')
+                                        .append( $('<button class="close" data-dismiss="modal">&times;</button>') )
+                                        .append( $('<h4 class="modal-title">Upload file</h4>') )
+                                )
+                                .append(
+                                    $('<div class="modal-body">').append(
+                                        $('<form method="post" id="fileInfo" name="fileInfo">')
+                                            .submit(function (e) {
+                                                e.preventDefault();
+                                                console.log('submit');
+                                                var url = $('#upload-modal').data('url');
+                                                console.log(url);
+                                                submitFileForm(url);
+                                            })
+                                            .append(
+                                                $('<div class="aside-left">')
+                                                    // .append($('<label for="file">Choose a file</label>'))
+                                                    .append($('<input type="file" name="file" class="inputfile" required/>'))
+                                            )
+                                            .append($('<input type="submit" class="btn learn-more-btn blue" value="Load"/>'))
+                                    )
+                                )
+                        )
+                    )
+                    .append($('<div id="output">'))
+                    .appendTo($('body'));
+
+                console.log($('#upload-modal'));
+            }
 
 
             var menu = $('<div>  <ul style="margin: 0; padding: 0">  <li class="menu-item" style="font-weight: bold; cursor: default; text-align: center;  padding: 10px 10px 10px 10px;" >Menu </li><li class="menu-item link" id="WILLS">Wills</li><li class="menu-item link" id="BUSINESS-STRUCTURE">Business structure</li><li class="menu-item link" id="LOGOUT">LOG OUT</li></ul></div>').addClass('persistant-menu');
@@ -175,13 +226,12 @@ $(document).ready(function () {
                                 .css('margin-top', '15px')
                                 .attr('id', 'menu-button')
                                 .css('vertical-align', 'middle')
-                                .click(function(){
-                                    if($(".persistant-menu").css('display') === 'none')
+                                .click(function () {
+                                    if ($(".persistant-menu").css('display') === 'none')
                                         $(".persistant-menu").show();
                                     else
                                         $(".persistant-menu").hide();
                                 })
-
                         )
                         .append(
                             $('<input type="text" placeholder="Type your message ...">')
@@ -194,8 +244,8 @@ $(document).ready(function () {
                                     }
                                 })
                                 .css('width', 'calc(100% - 88px - 70px)')
-                                .click(function(){
-                                        $(".persistant-menu").hide();
+                                .click(function () {
+                                    $(".persistant-menu").hide();
                                 })
                         )
                         .append(
@@ -226,7 +276,7 @@ $(document).ready(function () {
 
             $(".persistant-menu").hide();
 
-            $('.link').click(function() {
+            $('.link').click(function () {
                 $(".persistant-menu").hide();
             });
 
@@ -267,6 +317,8 @@ $(document).ready(function () {
 
                     setTimeout(function () {
 
+                        console.log('inTimeout');
+
                         if (message.text().length && message.text().trim()) {
                             $('<div class="message-row">')
                                 .append(
@@ -276,6 +328,9 @@ $(document).ready(function () {
                         }
 
                         if (val.message.quick_replies) {
+
+                            console.log('quickReplies');
+
                             scrCont = $('<div>')
                                 .addClass('scrolling-container')
                                 .addClass('quick')
@@ -287,11 +342,11 @@ $(document).ready(function () {
                                             function () {
                                                 var navwidth = scrCont.find('ul');
                                                 navwidth.scrollLeft(navwidth.scrollLeft() - 200);
-                                                if(navwidth.scrollLeft()===0){
+                                                if (navwidth.scrollLeft() === 0) {
                                                     $('#leftArrow').hide();
                                                 }
                                                 $('#rightArrow').show();
-                                                if($('.scrolling-container').width() > $('#scroll').width()){
+                                                if ($('.scrolling-container').width() > $('#scroll').width()) {
                                                     $('#leftArrow').hide();
                                                     $('#rightArrow').hide();
                                                 }
@@ -306,11 +361,11 @@ $(document).ready(function () {
                                             function () {
                                                 var navwidth = scrCont.find('ul');
                                                 navwidth.scrollLeft(navwidth.scrollLeft() + 200);
-                                                if(navwidth.scrollLeft()+navwidth.width()===navwidth.get(0).scrollWidth){
+                                                if (navwidth.scrollLeft() + navwidth.width() === navwidth.get(0).scrollWidth) {
                                                     $('#rightArrow').hide();
                                                 }
                                                 $('#leftArrow').show();
-                                                if($('.scrolling-container').width() > $('#scroll').width()){
+                                                if ($('.scrolling-container').width() > $('#scroll').width()) {
                                                     $('#leftArrow').hide();
                                                     $('#rightArrow').hide();
                                                 }
@@ -344,7 +399,7 @@ $(document).ready(function () {
                                 scrCont.addClass('scrollable');
                             }
 
-                            if($('.scrolling-container').width() > $('#scroll').width()){
+                            if ($('.scrolling-container').width() > $('#scroll').width()) {
                                 $('#leftArrow').hide();
                                 $('#rightArrow').hide();
                             } else {
@@ -352,13 +407,14 @@ $(document).ready(function () {
                                 $('#rightArrow').show();
                             }
 
-                            if($('.quick').find('ul').scrollLeft()===0){
+                            if ($('.quick').find('ul').scrollLeft() === 0) {
                                 $('#leftArrow').hide();
                             }
 
                         }
 
                         if (val.message.attachment && val.message.attachment.payload.elements) {
+
                             scrCont = $('<div>')
                                 .addClass('scrolling-container')
                                 .append(
@@ -366,8 +422,17 @@ $(document).ready(function () {
                                         .text('<')
                                         .click(
                                             function () {
-                                                var navwidth = scrCont.find('ul');
-                                                navwidth.scrollLeft(navwidth.scrollLeft() - 200);
+                                                var navwidth = parseInt(scrCont.find('ul').css('width'), 10) + 10;
+                                                // var navwidth = scrCont.find('ul');
+                                                // navwidth.scrollLeft(navwidth.scrollLeft() + 200);
+
+                                                scrCont.find('ul')
+                                                    .clearQueue()
+                                                    .stop()
+                                                    // .animate({scrollLeft: leftPos + parseInt($(scrCont.find('ul').find('.generic')[0]).css('width'), 10) - 50}, 300);
+                                                    .animate({
+                                                        scrollLeft: "-=" + navwidth
+                                                    }, "fast");
                                             }
                                         )
                                 )
@@ -376,8 +441,17 @@ $(document).ready(function () {
                                         .text('>')
                                         .click(
                                             function () {
-                                                var navwidth = scrCont.find('ul');
-                                                navwidth.scrollLeft(navwidth.scrollLeft() + 200);
+                                                var navwidth = parseInt(scrCont.find('ul').css('width'), 10) + 10;
+                                                // var navwidth = scrCont.find('ul');
+                                                // navwidth.scrollLeft(navwidth.scrollLeft() + 200);
+
+                                                scrCont.find('ul')
+                                                    .clearQueue()
+                                                    .stop()
+                                                    // .animate({scrollLeft: leftPos + parseInt($(scrCont.find('ul').find('.generic')[0]).css('width'), 10) - 50}, 300);
+                                                    .animate({
+                                                        scrollLeft: "+=" + navwidth
+                                                    }, "fast");
                                             }
                                         )
                                 )
@@ -464,6 +538,7 @@ $(document).ready(function () {
                         }
 
                         if (val.message.attachment && val.message.attachment.payload.buttons) {
+
                             message.css('border-radius', '10px 10px 0 0');
                             btnWidth = message.outerWidth();
 
@@ -492,6 +567,17 @@ $(document).ready(function () {
                                     btn
                                         .attr('href', entry.url)
                                         .attr('target', '_blank')
+                                } else if (entry.type === "upload") {
+
+                                    $('#upload-modal').data('url', entry.url);
+                                    btn
+                                        .attr('data-toggle', 'modal')
+                                        .attr('data-toggle', '#upload-modal')
+                                        .on("click", function () {
+                                            $('#upload-modal').modal();
+                                            console.log($('#upload-modal'));
+                                        })
+
                                 }
 
                                 btn.appendTo(container)
@@ -570,7 +656,7 @@ $(document).ready(function () {
                     }
                 }
 
-                if(echo) {
+                if (echo) {
                     data.entry[0].messaging[0].message.is_echo = true;
                 }
 
@@ -612,7 +698,7 @@ $(document).ready(function () {
 
                     if (response.status === 'connected') {
                         console.log('Already logged in FB.');
-			FB.api('/me', function (response) {
+                        FB.api('/me', function (response) {
                             chatId = response.id;
                             accessToken = FB.getAuthResponse()['accessToken'];
                             chatInit(chatId, accessToken);
@@ -625,7 +711,7 @@ $(document).ready(function () {
                                     accessToken = FB.getAuthResponse()['accessToken'];
                                 }
 
-                                if(chatId && (chatId !== undefined)) {
+                                if (chatId && (chatId !== undefined)) {
                                     console.log('You are successfully logged in FB.');
                                     chatInit(chatId, accessToken);
                                 }
@@ -693,7 +779,7 @@ $(document).ready(function () {
                         // type: "GET",            //mocked up version, should be post with data: !!!
                         // url: 'https://010e8e35.ngrok.io/web/getStarted',
                         url: 'https://pavlenko.botscrew.com/web/getStarted',
-                        // url: './data/response3.json',
+                        // url: './data/response2.json',
                         contentType: "application/json; charset=utf-8",
                         dataType: "json",
                         data: JSON.stringify(data),
@@ -704,30 +790,30 @@ $(document).ready(function () {
                         },
                         error: function () {
                             console.log("Internal Server Error. Not possible to get chat id.");
-				            loginFB();
+                            loginFB();
                         }
                     });
                 });
             }
 
-            $('#WILLS').click(function() {
+            $('#WILLS').click(function () {
                 send("menu", "Wills");
             });
 
-            $('#BUSINESS-STRUCTURE').click(function() {
+            $('#BUSINESS-STRUCTURE').click(function () {
                 send("menu", "Business structure");
             });
 
-            $('#LOGOUT').click(function() {
+            $('#LOGOUT').click(function () {
                 FB.getLoginStatus(function (response) {
                     if (response.status === 'connected') {
-                        FB.logout(function(response) {
+                        FB.logout(function (response) {
                             location.reload();
                         });
                     } else {
                         location.reload();
                     }
-                    })
+                })
             });
 
             function send(param, elem) {
@@ -744,7 +830,7 @@ $(document).ready(function () {
                         text = elem.text();
                     }
 
-                    if(param === "menu"){
+                    if (param === "menu") {
                         text = elem;
                     }
 
@@ -828,46 +914,31 @@ $(document).ready(function () {
 
             function setGenericWidth(scrCont) {
 
-                // console.log(scrCont);
-                // console.log(  );
-
                 clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(function() {
+
+                resizeTimer = setTimeout(function () {
+
+                    console.log(scrCont);
 
                     genericScrollValue = parseInt($('.chat-container').css('width'), 10);
-                    var genInfo = $('.generic-info');
-                    if (genInfo && !genInfo.parent().parent().parent().hasClass('list')) {
-                        // var scrContWidth = genInfo.parent().parent().css('width');
-                        var scrContWidth = parseInt($('#messageContainer .message-outer.bot').css('width'), 10) - 3;
 
-                        if(scrCont === undefined) {
-                            scrCont = $(".scrolling-container:not(.quick)").last();
-                        }
+                    // var scrContWidth = genInfo.parent().parent().css('width');
+                    var scrContWidth = parseInt($('#messageContainer .message-outer.bot').css('width'), 10) - 3;
 
-                        // var scrCont = genInfo.parent().parent();
-                        scrCont.find('.generic-info').each(function () {
-                            $(this).css('width', scrContWidth);
-                            var genImg = $(this).parent().find('.generic-img');
-
-                            if (genImg) {
-                                var genImgWidth = parseInt($(this).parent().find('.generic-img').find('.inner').css('width'), 10);
-                                genImg.find('.inner').css('height', genImgWidth / 2);
-                            }
-                        });
-
-                        scrCont.parent().find('.arrow').first().click(
-                            function () {
-                                var navwidth = scrCont.find('ul');
-                                navwidth.scrollLeft(navwidth.scrollLeft() - parseInt(scrContWidth, 10));
-                            }
-                        );
-                        scrCont.parent().find('.arrow').last().click(
-                            function () {
-                                var navwidth = scrCont.find('ul');
-                                navwidth.scrollLeft(navwidth.scrollLeft() + parseInt(scrContWidth, 10));
-                            }
-                        );
+                    if (scrCont === undefined) {
+                        scrCont = $(".scrolling-container:not(.quick)").last();
                     }
+
+                    // var scrCont = genInfo.parent().parent();
+                    scrCont.find('.generic-info').each(function () {
+                        $(this).css('width', scrContWidth);
+                        var genImg = $(this).parent().find('.generic-img');
+
+                        if (genImg) {
+                            var genImgWidth = parseInt($(this).parent().find('.generic-img').find('.inner').css('width'), 10);
+                            genImg.find('.inner').css('height', genImgWidth / 2);
+                        }
+                    });
 
                     scrCont.find('.generic').each(function () {
                         scrContWidth += parseInt($(this).css('width'), 10) + 20;
@@ -876,7 +947,7 @@ $(document).ready(function () {
                     // console.log(scrContWidth, 'scrContWidth');
                     // console.log($(scrCont[0]).css('width'), 'scrWidth');
 
-                    if (scrContWidth > parseInt( $(scrCont[0]).css('width'), 10 )) {
+                    if (scrContWidth > parseInt($(scrCont[0]).css('width'), 10)) {
                         $(scrCont[0]).addClass('scrollable');
 
                         scrContWidth = parseInt($('#messageContainer .message-outer.bot').css('width'), 10) - 44 - 40;
@@ -884,7 +955,6 @@ $(document).ready(function () {
                         // console.log(scrContWidth);
 
                         $(scrCont[0]).find('.generic-info').each(function () {
-                            console.log($(this));
                             $(this).css('width', scrContWidth);
                             var genImg = $(this).parent().find('.generic-img');
 
@@ -894,6 +964,44 @@ $(document).ready(function () {
                             }
                         });
                     }
+
+                    // scrCont.parent().find('.arrow').first().click(
+                    //     function () {
+                    //
+                    //         var leftPos = scrCont.find('ul').scrollLeft();
+                    //         scrCont.find('ul')
+                    //             .clearQueue()
+                    //             .stop()
+                    //             .animate({scrollLeft: leftPos - parseInt(scrContWidth, 10)/2}, 300);
+                    //
+                    //         // var navwidth = scrCont.find('ul');
+                    //         // navwidth.scrollLeft(navwidth.scrollLeft() - parseInt(scrContWidth, 10));
+                    //     }
+                    // );
+                    // scrCont.parent().find('.arrow').last().click(
+                    //     function (e) {
+                    //         e.preventDefault();
+                    //         // var navwidth = scrCont.find('ul');
+                    //         // navwidth.scrollLeft(navwidth.scrollLeft() + parseInt(scrContWidth, 10));
+                    //
+                    //         // var leftPos = scrCont.find('ul').scrollLeft();
+                    //
+                    //         console.log(scrCont);
+                    //         console.log(scrCont.css('width'));
+                    //
+                    //         var scrollWidth = scrCont.outerWidth();
+                    //
+                    //         console.log(scrollWidth);
+                    //
+                    //         scrCont
+                    //             .clearQueue()
+                    //             .stop()
+                    //             // .animate({scrollLeft: leftPos + parseInt($(scrCont.find('ul').find('.generic')[0]).css('width'), 10) - 50}, 300);
+                    //             .animate({
+                    //                 scrollLeft: "+=" + scrollWidth
+                    //             }, "slow");
+                    //     }
+                    // );
 
                     chatScrollBottom();
 
@@ -938,15 +1046,15 @@ $(document).ready(function () {
         init();
     })();
 
-    $( window ).resize(function() {
-        if($('.scrolling-container').width() > $('#scroll').width()){
+    $(window).resize(function () {
+        if ($('.scrolling-container').width() > $('#scroll').width()) {
             $('#leftArrow').hide();
             $('#rightArrow').hide();
         } else {
             $('#leftArrow').show();
             $('#rightArrow').show();
         }
-        if($('.quick').find('ul').scrollLeft()===0){
+        if ($('.quick').find('ul').scrollLeft() === 0) {
             $('#leftArrow').hide();
         }
 

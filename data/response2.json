@@ -18,6 +18,11 @@
             "type":"postback",
             "title":"Start Chatting",
             "payload":"USER_DEFINED_PAYLOAD"
+          },
+          {
+            "type":"upload",
+            "title":"Upload",
+            "url":"https://requestb.in/12rurgj1"
           }
         ]
       }
