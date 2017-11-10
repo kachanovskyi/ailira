@@ -24,6 +24,7 @@ $(document).ready(function () {
 
     (function () {
         var root = './';
+        var userId = null;
         var navHeight = 82,
             genericScrollValue;
 
@@ -154,18 +155,16 @@ $(document).ready(function () {
                 )
                 .appendTo(chatWindow);
 
-            var submitFileForm = function (url) {
-                console.log("submit event");
+            var submitFileForm = function () {
                 var fd = new FormData(document.getElementById("fileinfo"));
-                fd.append("label", "WEBUPLOAD");
+                fd.append("label", "files");
                 $.ajax({
-                    url: url,
+                    url: "https://pavlenko.botscrew.com/web/" + userId + "/files",
                     type: "POST",
                     data: fd,
                     processData: false,  // tell jQuery not to process the data
                     contentType: false   // tell jQuery not to set contentType
                 }).done(function (data) {
-                    console.log("PHP Output:");
                     console.log(data);
                 });
                 return false;
@@ -187,10 +186,7 @@ $(document).ready(function () {
                                         $('<form method="post" id="fileInfo" name="fileInfo">')
                                             .submit(function (e) {
                                                 e.preventDefault();
-                                                console.log('submit');
-                                                var url = $('#upload-modal').data('url');
-                                                console.log(url);
-                                                submitFileForm(url);
+                                                submitFileForm();
                                             })
                                             .append(
                                                 $('<div class="aside-left">')
@@ -204,8 +200,6 @@ $(document).ready(function () {
                     )
                     .append($('<div id="output">'))
                     .appendTo($('body'));
-
-                console.log($('#upload-modal'));
             }
 
 
@@ -243,9 +237,16 @@ $(document).ready(function () {
                                         send();
                                     }
                                 })
-                                .css('width', 'calc(100% - 88px - 70px)')
+                                .css('width', 'calc(100% - 82px - 70px - 2px)')
                                 .click(function () {
                                     $(".persistant-menu").hide();
+                                })
+                        )
+                        .append(
+                            $('<a class="upload-file">')
+                                .append( $('<img>').attr('src', 'images/upload.svg') )
+                                .on("click", function () {
+                                    $('#upload-modal').modal();
                                 })
                         )
                         .append(
@@ -296,7 +297,6 @@ $(document).ready(function () {
                     scrContWidth = 0;
 
                 if (val.sender_action) {
-                    console.log('TYPING');
                     var wave = $('<div id="wave">')
                         .append($('<span class="dot">'))
                         .append($('<span class="dot">'))
@@ -317,8 +317,6 @@ $(document).ready(function () {
 
                     setTimeout(function () {
 
-                        console.log('inTimeout');
-
                         if (message.text().length && message.text().trim()) {
                             $('<div class="message-row">')
                                 .append(
@@ -328,8 +326,6 @@ $(document).ready(function () {
                         }
 
                         if (val.message.quick_replies) {
-
-                            console.log('quickReplies');
 
                             scrCont = $('<div>')
                                 .addClass('scrolling-container')
@@ -392,8 +388,6 @@ $(document).ready(function () {
                             scrCont.find('ul').find('li').each(function () {
                                 scrContWidth += $(this).width() + 20;
                             });
-
-                            console.log(scrContWidth);
 
                             if (scrContWidth > parseInt(scrCont.css('width'), 10)) {
                                 scrCont.addClass('scrollable');
@@ -526,11 +520,6 @@ $(document).ready(function () {
                                 }
 
                                 generic.appendTo(scrCont.find('ul'));
-
-                                // console.log(generic.width());
-                                // scrContWidth = $('.generic-info').parent().parent().css('width');
-                                // console.log(scrContWidth);
-
                             });
 
                             setGenericWidth(scrCont);
@@ -567,17 +556,6 @@ $(document).ready(function () {
                                     btn
                                         .attr('href', entry.url)
                                         .attr('target', '_blank')
-                                } else if (entry.type === "upload") {
-
-                                    $('#upload-modal').data('url', entry.url);
-                                    btn
-                                        .attr('data-toggle', 'modal')
-                                        .attr('data-toggle', '#upload-modal')
-                                        .on("click", function () {
-                                            $('#upload-modal').modal();
-                                            console.log($('#upload-modal'));
-                                        })
-
                                 }
 
                                 btn.appendTo(container)
@@ -605,7 +583,7 @@ $(document).ready(function () {
                     // setConnected(true);
                     console.log('Connected: ' + frame);
                     stompClient.subscribe('/topic/greetings/' + chatId, function (greeting) {
-                        console.log(greeting);
+                        userId = JSON.parse(greeting.body).recipient.id;
                         showGreeting(JSON.parse(greeting.body));
                     });
                     sendName("hi");
@@ -917,8 +895,6 @@ $(document).ready(function () {
                 clearTimeout(resizeTimer);
 
                 resizeTimer = setTimeout(function () {
-
-                    console.log(scrCont);
 
                     genericScrollValue = parseInt($('.chat-container').css('width'), 10);
 

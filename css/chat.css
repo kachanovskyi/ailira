@@ -167,10 +167,15 @@
     background: #FFFFFF;
 }
 
+#chat-window .chat-bottom .upload-file img {
+    width: 100%;
+}
+
+#chat-window .chat-bottom .upload-file,
 #chat-window .chat-bottom .send-message {
     display: inline-block;
     cursor: pointer;
-    width: 88px;
+    width: 54px;
     height: 50px;
     position: relative;
     font-size: 16px;
@@ -178,7 +183,13 @@
     padding-top: 15px;
     color: #2F80ED;
     text-align: left;
-    padding-left: 16px;
+    padding-left: 0;
+}
+
+#chat-window .chat-bottom .upload-file {
+    height: auto;
+    width: 40px;
+    padding: 0;
 }
 
 #chat-window .chat-bottom .send-message.disabled {

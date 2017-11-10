@@ -16,6 +16,14 @@ h3 {
     font-weight: normal;
 }
 
+h5 {
+    font-size: 18px;
+}
+
+h6 {
+    font-size: 16px;
+}
+
 p {
     font-size: 16px;
     line-height: 120%;
@@ -30,6 +38,33 @@ a {
 a:hover {
     text-decoration: underline;
     color: #2F80ED;
+}
+
+ol {
+    list-style-type: none;
+    counter-reset: item;
+    margin: 0;
+    padding: 0;
+}
+
+ol > li {
+    display: table;
+    counter-increment: item;
+    margin-bottom: 0.6em;
+}
+
+ol > li:before {
+    content: counters(item, ".") ". ";
+    display: table-cell;
+    padding-right: 0.6em;
+}
+
+li ol > li {
+    margin: 0;
+}
+
+li ol > li:before {
+    content: counters(item, ".") " ";
 }
 
 .margin-0 {
@@ -413,6 +448,10 @@ a:hover {
     margin: 0;
     color: rgba(256, 256, 256, .5);
     line-height: 140%;
+}
+
+span.grey {
+    background-color: #cacaca;
 }
 
 @media (max-width: 1199px) {
