@@ -1,4 +1,9 @@
 //� All rights reserved. BotsCrew 2017
+if (location.protocol != 'https:')
+{
+    location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+}
+
 $(document).ready(function () {
 
     window.fbAsyncInit = function () {
@@ -146,7 +151,6 @@ $(document).ready(function () {
                         .append(
                             $('<a class="hr-text terms-link">')
                                 .attr('href', 'https://www.ailira.com/terms-and-conditions.html')
-                                .attr('target', '_blank')
                                 .text('Terms and Conditions')
                                 .css('display', 'inline-block')
                         )
@@ -174,6 +178,8 @@ $(document).ready(function () {
                     contentType: false   // tell jQuery not to set contentType
                 }).done(function (data) {
                     console.log(data);
+                    $('#fileInfo .inputfile').val("");
+                    $('#upload-modal').modal('hide');
                 });
                 return false;
             };

@@ -2,30 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc49411e-1ce6-49ec-9725-781dc571a8e4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/about.html" afterPath="$PROJECT_DIR$/about.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/become-partners.html" afterPath="$PROJECT_DIR$/become-partners.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog.html" afterPath="$PROJECT_DIR$/blog.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/blog-example.html" afterPath="$PROJECT_DIR$/blog/blog-example.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contact.html" afterPath="$PROJECT_DIR$/contact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/chat.css" afterPath="$PROJECT_DIR$/css/chat.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/chat.js" afterPath="$PROJECT_DIR$/js/chat.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/advanced-business-structures.html" afterPath="$PROJECT_DIR$/law-library/advanced-business-structures.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/domestic-violence.html" afterPath="$PROJECT_DIR$/law-library/domestic-violence.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/company-owned-by-multiple-discretionary-trusts.html" afterPath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/company-owned-by-multiple-discretionary-trusts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/partnership-of-discretionary-trusts.html" afterPath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/partnership-of-discretionary-trusts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/partnership-of-individuals.html" afterPath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/partnership-of-individuals.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/unit-trust.html" afterPath="$PROJECT_DIR$/law-library/multiple-founder-business-structures/unit-trust.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/single-founder-business-structures/company-owned-by-one-discretionary-trust.html" afterPath="$PROJECT_DIR$/law-library/single-founder-business-structures/company-owned-by-one-discretionary-trust.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/single-founder-business-structures/discretionary-trust-single-founder-business-model.html" afterPath="$PROJECT_DIR$/law-library/single-founder-business-structures/discretionary-trust-single-founder-business-model.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/single-founder-business-structures/hobby.html" afterPath="$PROJECT_DIR$/law-library/single-founder-business-structures/hobby.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/single-founder-business-structures/sole-trader.html" afterPath="$PROJECT_DIR$/law-library/single-founder-business-structures/sole-trader.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/wills-and-estate-planning/estate-planning-faq.html" afterPath="$PROJECT_DIR$/law-library/wills-and-estate-planning/estate-planning-faq.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/law-library/wills-and-estate-planning/estate-planning-glossary.html" afterPath="$PROJECT_DIR$/law-library/wills-and-estate-planning/estate-planning-glossary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newsroom.html" afterPath="$PROJECT_DIR$/newsroom.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/terms-and-conditions.html" afterPath="$PROJECT_DIR$/terms-and-conditions.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user-guide.html" afterPath="$PROJECT_DIR$/user-guide.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,7 +16,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="chat.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="chat.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/chat.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="332">
@@ -59,15 +36,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chat.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="chat.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/chat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="150" column="61" lean-forward="false" selection-start-line="150" selection-start-column="61" selection-end-line="150" selection-end-column="61" />
+            <state relative-caret-position="249">
+              <caret line="153" column="0" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
               <folding>
-                <marker date="1510325326000" expanded="true" signature="8483:8490" ph="×" />
-                <marker date="1510325326000" expanded="true" signature="9906:9927" ph="..." />
-                <marker date="1510325326000" expanded="true" signature="9960:10046" ph="..." />
+                <marker date="1510326588000" expanded="true" signature="8670:8677" ph="×" />
+                <marker date="1510326588000" expanded="true" signature="10093:10114" ph="..." />
+                <marker date="1510326588000" expanded="true" signature="10147:10233" ph="..." />
               </folding>
             </state>
           </provider>
@@ -254,8 +231,8 @@
         <option value="$PROJECT_DIR$/law-library/multiple-founder-business-structures/company-owned-by-multiple-discretionary-trusts.html" />
         <option value="$PROJECT_DIR$/law-library/multiple-founder-business-structures/partnership-of-discretionary-trusts.html" />
         <option value="$PROJECT_DIR$/law-library/multiple-founder-business-structures/partnership-of-individuals.html" />
-        <option value="$PROJECT_DIR$/js/chat.js" />
         <option value="$PROJECT_DIR$/css/chat.css" />
+        <option value="$PROJECT_DIR$/js/chat.js" />
       </list>
     </option>
   </component>
@@ -477,12 +454,12 @@
       <workItem from="1509971148395" duration="244000" />
       <workItem from="1509974172653" duration="10724000" />
       <workItem from="1510059584815" duration="22062000" />
-      <workItem from="1510297825040" duration="8115000" />
+      <workItem from="1510297825040" duration="8773000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="265000000" />
+    <option name="totallyTimeSpent" value="265658000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -705,9 +682,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
           <caret line="1441" column="26" lean-forward="true" selection-start-line="1441" selection-start-column="26" selection-end-line="1441" selection-end-column="26" />
-          <folding>
-            <element signature="n#DIV#0;n#BODY#0;n#HTML#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -886,18 +861,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/chat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="150" column="61" lean-forward="false" selection-start-line="150" selection-start-column="61" selection-end-line="150" selection-end-column="61" />
-          <folding>
-            <marker date="1510325326000" expanded="true" signature="8483:8490" ph="×" />
-            <marker date="1510325326000" expanded="true" signature="9906:9927" ph="..." />
-            <marker date="1510325326000" expanded="true" signature="9960:10046" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -911,6 +874,18 @@
         <state relative-caret-position="332">
           <caret line="196" column="1" lean-forward="false" selection-start-line="196" selection-start-column="1" selection-end-line="196" selection-end-column="1" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/chat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="153" column="0" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
+          <folding>
+            <marker date="1510326588000" expanded="true" signature="8670:8677" ph="×" />
+            <marker date="1510326588000" expanded="true" signature="10093:10114" ph="..." />
+            <marker date="1510326588000" expanded="true" signature="10147:10233" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
