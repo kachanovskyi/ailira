@@ -196,14 +196,14 @@
     color: #dadada;
 }
 
-/*#chat-window .chat-bottom .send-message i {*/
-    /*font-size: 26px;*/
-    /*position: absolute;*/
-    /*top: 50%;*/
-    /*left: 50%;*/
-    /*transform: translate(-50%, -50%);*/
-    /*color: #4b5053;*/
-/*}*/
+.terms-link.hr-text:before {
+    background: none!important;
+    width: auto;
+}
+.terms-link.hr-text {
+    text-decoration: underline;
+    opacity: .36;
+}
 
 .chatInput {
     display: inline-block;

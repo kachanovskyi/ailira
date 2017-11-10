@@ -143,6 +143,14 @@ $(document).ready(function () {
                                 .on("click", loginFB)
                         )
 
+                        .append(
+                            $('<a class="hr-text terms-link">')
+                                .attr('href', 'https://www.ailira.com/terms-and-conditions.html')
+                                .attr('target', '_blank')
+                                .text('Terms and Conditions')
+                                .css('display', 'inline-block')
+                        )
+
                     /*.append(
                         $('<a class="login-btn goo">')
                             .append(
