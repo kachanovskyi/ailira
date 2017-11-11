@@ -168,7 +168,8 @@ $(document).ready(function () {
                 .appendTo(chatWindow);
 
             var submitFileForm = function () {
-                var fd = new FormData(document.getElementById("fileinfo"));
+                var form = $('#fileinfo').get(0);
+                var fd = new FormData(form);
                 fd.append("label", "files");
                 $.ajax({
                     url: "https://pavlenko.botscrew.com/web/" + userId + "/files",
@@ -178,6 +179,9 @@ $(document).ready(function () {
                     contentType: false   // tell jQuery not to set contentType
                 }).done(function (data) {
                     console.log(data);
+                    if($('#messageContainer').find('.scrolling-container.quick').length > 0) {
+                        $('#messageContainer').find('.scrolling-container.quick').remove();
+                    }
                     $('#fileInfo .inputfile').val("");
                     $('#upload-modal').modal('hide');
                 });
@@ -595,7 +599,7 @@ $(document).ready(function () {
                 stompClient = Stomp.over(socket);
                 stompClient.connect({}, function (frame) {
                     // setConnected(true);
-                    console.log('Connected: ' + frame);
+                    // console.log('Connected: ' + frame);
                     stompClient.subscribe('/topic/greetings/' + chatId, function (greeting) {
                         userId = JSON.parse(greeting.body).recipient.id;
                         showGreeting(JSON.parse(greeting.body));
